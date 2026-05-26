@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clinic Season Opener — Coaching Board (Day 2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2332;
+    --navy-soft: #2c3a4f;
+    --teal: #2d8b8b;
+    --teal-deep: #1f6a6a;
+    --seafoam: #a8dadc;
+    --cream: #f4f1ec;
+    --paper: #fafaf7;
+    --white: #ffffff;
+    --shadow-sm: 0 1px 3px rgba(26,35,50,0.08), 0 1px 2px rgba(26,35,50,0.04);
+    --shadow-md: 0 4px 12px rgba(26,35,50,0.08), 0 2px 4px rgba(26,35,50,0.04);
+    --shadow-lg: 0 12px 32px rgba(26,35,50,0.12), 0 4px 8px rgba(26,35,50,0.06);
+    --border: #e6e2da;
+
+    --jonathan: #4a90b8; --jonathan-soft: #d8e8f1;
+    --tali: #e8907a; --tali-soft: #fae0d8;
+    --roee: #d4a574; --roee-soft: #f5e4cc;
+    --michal: #7fa993; --michal-soft: #dceae0;
+    --koby: #9c8dc4; --koby-soft: #e3dcef;
+
+    --warn: #c46a3c; --warn-bg: #fdf0e6;
+    --ok: #4a8a5f; --ok-bg: #e0eee5;
+    --improving: #b88c2f; --improving-bg: #f6ecd2;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--cream); color: var(--navy);
+    line-height: 1.55; min-height: 100vh;
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(168,218,220,0.15) 0%, transparent 50%),
+      radial-gradient(circle at 90% 80%, rgba(45,139,139,0.08) 0%, transparent 50%);
+  }
+  h1, h2, h3, h4 { font-family: 'Fraunces', serif; letter-spacing: -0.02em; font-weight: 600; }
+
+  .header {
+    background: linear-gradient(135deg, var(--navy) 0%, #243049 60%, #2d8b8b 140%);
+    color: var(--cream); padding: 40px 56px 32px; position: relative; overflow: hidden;
+  }
+  .header::before {
+    content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 60px;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'><path d='M0,30 Q200,0 400,30 T800,30 T1200,30 L1200,60 L0,60 Z' fill='%23f4f1ec'/></svg>") no-repeat;
+    background-size: cover;
+  }
+  .header-inner { max-width: 1600px; margin: 0 auto; position: relative; z-index: 1; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; }
+  .brand-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--seafoam); font-weight: 600; margin-bottom: 8px; }
+  .brand-title { font-size: 44px; line-height: 1.05; color: var(--cream); }
+  .brand-meta { margin-top: 14px; color: rgba(241,250,238,0.75); font-size: 14px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+  .brand-meta .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--seafoam); }
+  .header-stats { display: flex; gap: 12px; flex-wrap: wrap; }
+  .stat-pill { background: rgba(255,255,255,0.08); border: 1px solid rgba(168,218,220,0.2); border-radius: 12px; padding: 10px 16px; min-width: 96px; backdrop-filter: blur(8px); }
+  .stat-pill .num { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 600; color: var(--cream); display: block; }
+  .stat-pill .lbl { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--seafoam); margin-top: 2px; }
+
+  main { max-width: 1600px; margin: 0 auto; padding: 36px 56px 80px; }
+
+  .alerts { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  @media (max-width: 720px) { .alerts { grid-template-columns: 1fr; } }
+  .alert { background: var(--white); border-radius: 14px; padding: 16px 20px; box-shadow: var(--shadow-sm); display: flex; gap: 14px; align-items: flex-start; border-left: 4px solid var(--warn); }
+  .alert.info { border-left-color: var(--teal); }
+  .alert.ok { border-left-color: var(--ok); }
+  .alert-icon { width: 32px; height: 32px; border-radius: 8px; background: var(--warn-bg); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--warn); font-weight: 700; font-family: 'Fraunces', serif; }
+  .alert.info .alert-icon { background: rgba(45,139,139,0.12); color: var(--teal); }
+  .alert.ok .alert-icon { background: var(--ok-bg); color: var(--ok); }
+  .alert-body strong { font-weight: 600; font-size: 14px; display: block; margin-bottom: 2px; }
+  .alert-body span { font-size: 13px; color: var(--navy-soft); }
+
+  /* Day 2 Highlights ribbon */
+  .day-highlights {
+    background: linear-gradient(135deg, var(--white) 0%, #f9f6f0 100%);
+    border-radius: 16px; padding: 24px 28px; margin-bottom: 36px;
+    box-shadow: var(--shadow-md); border-left: 5px solid var(--teal);
+  }
+  .day-highlights h2 { font-size: 22px; color: var(--navy); margin-bottom: 4px; }
+  .day-highlights .sub { font-size: 13px; color: var(--navy-soft); margin-bottom: 16px; font-style: italic; }
+  .highlight-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  .highlight-item { padding: 10px 14px; background: var(--paper); border-radius: 10px; border-top: 3px solid var(--accent, var(--teal)); }
+  .highlight-item .name { font-weight: 600; font-size: 13px; color: var(--navy); margin-bottom: 2px; }
+  .highlight-item .what { font-size: 12.5px; color: var(--navy-soft); line-height: 1.45; }
+
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px; margin-top: 8px; flex-wrap: wrap; gap: 12px; }
+  .section-head h2 { font-size: 28px; color: var(--navy); }
+  .section-head .hint { font-size: 13px; color: var(--navy-soft); font-style: italic; }
+
+  .board { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 24px; align-items: stretch; }
+  .student-card { background: var(--white); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-md); transition: all 0.25s ease; display: flex; flex-direction: column; cursor: pointer; border: 1px solid var(--border); position: relative; }
+  .student-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .card-band { height: 8px; }
+  .card-head { padding: 22px 24px 18px; display: flex; align-items: center; gap: 14px; border-bottom: 1px solid var(--border); }
+  .avatar { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-weight: 700; font-size: 22px; color: var(--white); flex-shrink: 0; }
+  .card-head h3 { font-size: 22px; line-height: 1.1; color: var(--navy); }
+  .badges { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+  .badge { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; padding: 3px 8px; border-radius: 6px; background: var(--cream); color: var(--navy-soft); }
+  .badge.warn { background: var(--warn-bg); color: var(--warn); }
+  .badge.ok { background: var(--ok-bg); color: var(--ok); }
+  .badge.improving { background: var(--improving-bg); color: var(--improving); }
+  .card-body { padding: 18px 24px 22px; flex: 1; display: flex; flex-direction: column; gap: 16px; }
+  .approach { background: var(--cream); border-radius: 10px; padding: 12px 14px; font-size: 13px; line-height: 1.5; color: var(--navy-soft); border-left: 3px solid currentColor; }
+  .approach strong { color: var(--navy); font-weight: 600; }
+  .label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--navy-soft); margin-bottom: 8px; }
+  .priority-list { list-style: none; display: flex; flex-direction: column; gap: 6px; counter-reset: item; }
+  .priority-list li { font-size: 13.5px; padding-left: 22px; position: relative; line-height: 1.45; }
+  .priority-list li::before { content: counter(item); counter-increment: item; position: absolute; left: 0; top: 0; width: 16px; height: 16px; border-radius: 4px; background: currentColor; color: var(--white); font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .priority-list li span { color: var(--navy); display: block; }
+
+  .mantra {
+    background: linear-gradient(135deg, var(--accent, var(--teal)) 0%, color-mix(in srgb, var(--accent, var(--teal)) 70%, black) 100%);
+    color: var(--white); border-radius: 12px; padding: 16px 18px;
+    text-align: center; box-shadow: 0 4px 12px color-mix(in srgb, var(--accent, var(--teal)) 30%, transparent);
+    position: relative;
+  }
+  .mantra .mantra-label {
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    font-weight: 600; color: rgba(255,255,255,0.75); margin-bottom: 6px;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+  }
+  .mantra .mantra-text {
+    font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600;
+    line-height: 1.2; letter-spacing: -0.01em;
+  }
+  .mantra .mantra-explain {
+    font-size: 12px; color: rgba(255,255,255,0.85); margin-top: 8px;
+    line-height: 1.4; font-style: italic;
+  }
+  .three-points { background: var(--paper); border: 1px dashed var(--border); border-radius: 10px; padding: 14px; }
+  .three-points .label { margin-bottom: 6px; }
+  .three-points ol { padding-left: 18px; font-size: 13px; color: var(--navy); }
+  .three-points ol li { margin: 3px 0; }
+
+  .card-foot { padding: 14px 24px; background: var(--paper); display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); font-size: 12px; }
+  .card-foot .open { color: var(--teal); font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 4px; }
+  .card-foot .open:hover { color: var(--teal-deep); }
+
+  .themes-section { margin-top: 56px; }
+  .themes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .theme-card { background: var(--white); border-radius: 14px; padding: 18px 20px; box-shadow: var(--shadow-sm); border-top: 4px solid var(--teal); }
+  .theme-card h4 { font-size: 15px; margin-bottom: 6px; color: var(--navy); }
+  .theme-card p { font-size: 13px; color: var(--navy-soft); }
+
+  .modal-overlay { position: fixed; inset: 0; background: rgba(26,35,50,0.55); backdrop-filter: blur(4px); display: none; z-index: 100; align-items: flex-start; justify-content: center; padding: 40px 16px; overflow-y: auto; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: var(--paper); border-radius: 20px; max-width: 920px; width: 100%; box-shadow: 0 24px 64px rgba(26,35,50,0.3); overflow: hidden; animation: slideUp 0.3s ease; }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .modal-head { padding: 28px 36px 20px; position: relative; color: var(--white); display: flex; gap: 18px; align-items: center; }
+  .modal-head .avatar { width: 64px; height: 64px; font-size: 28px; border: 2px solid rgba(255,255,255,0.4); }
+  .modal-head h2 { font-size: 32px; color: var(--white); }
+  .modal-head .meta { font-size: 13px; opacity: 0.9; margin-top: 4px; }
+  .modal-close { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.18); border: none; color: var(--white); width: 36px; height: 36px; border-radius: 10px; cursor: pointer; font-size: 20px; line-height: 1; transition: background 0.2s; }
+  .modal-close:hover { background: rgba(255,255,255,0.32); }
+  .modal-tabs { display: flex; gap: 4px; padding: 0 28px; background: var(--white); border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+  .tab-btn { background: none; border: none; padding: 14px 16px; cursor: pointer; font-family: inherit; font-size: 13px; font-weight: 500; color: var(--navy-soft); border-bottom: 2px solid transparent; transition: all 0.2s; }
+  .tab-btn:hover { color: var(--navy); }
+  .tab-btn.active { color: var(--teal); border-bottom-color: var(--teal); font-weight: 600; }
+  .modal-body { padding: 28px 36px 36px; max-height: 70vh; overflow-y: auto; }
+  .tab-pane { display: none; }
+  .tab-pane.active { display: block; animation: fadeIn 0.25s ease; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .modal-body h3 { font-size: 18px; margin-bottom: 12px; margin-top: 22px; color: var(--navy); }
+  .modal-body h3:first-child { margin-top: 0; }
+  .modal-body h4 { font-size: 14px; font-weight: 600; margin-bottom: 8px; margin-top: 16px; color: var(--navy); font-family: 'Inter', sans-serif; }
+  .modal-body p { font-size: 14px; color: var(--navy); margin-bottom: 10px; }
+  .modal-body ul { padding-left: 20px; margin-bottom: 12px; }
+  .modal-body ul li { font-size: 14px; color: var(--navy); margin-bottom: 6px; line-height: 1.5; }
+  .modal-body strong { font-weight: 600; }
+  .callout { background: var(--white); border-left: 4px solid var(--teal); padding: 16px 18px; border-radius: 10px; margin: 16px 0; box-shadow: var(--shadow-sm); font-size: 14px; }
+  .callout.warn { border-left-color: var(--warn); background: var(--warn-bg); }
+  .callout strong { display: block; margin-bottom: 4px; }
+
+  /* Roadmap with status */
+  .roadmap-item { background: var(--white); padding: 14px 18px; border-radius: 10px; margin-bottom: 10px; border-left: 4px solid var(--accent, var(--teal)); box-shadow: var(--shadow-sm); position: relative; }
+  .roadmap-item.new-d2 { border-left-style: dashed; background: linear-gradient(135deg, var(--white) 0%, #fef9ed 100%); }
+  .roadmap-item h4 { margin-top: 0; color: var(--accent, var(--teal)); display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+  .roadmap-item .status { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px; border-radius: 6px; font-weight: 700; }
+  .status-improved { background: var(--ok-bg); color: var(--ok); }
+  .status-improving { background: var(--improving-bg); color: var(--improving); }
+  .status-working { background: var(--cream); color: var(--navy-soft); }
+  .status-deteriorating { background: var(--warn-bg); color: var(--warn); }
+  .status-new { background: rgba(45,139,139,0.12); color: var(--teal); }
+  .status-mastered { background: var(--ok-bg); color: var(--ok); }
+  .roadmap-item .status-note { font-size: 12.5px; color: var(--navy-soft); margin-top: 6px; font-style: italic; }
+  .roadmap-item p { margin-bottom: 0; font-size: 13.5px; }
+
+  /* Day timeline */
+  .day-timeline { display: flex; flex-direction: column; gap: 16px; margin-top: 12px; }
+  .day-card { background: var(--white); border-radius: 12px; padding: 18px 20px; box-shadow: var(--shadow-sm); border-top: 3px solid var(--accent, var(--teal)); position: relative; }
+  .day-card .day-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; flex-wrap: wrap; gap: 8px; }
+  .day-card .day-label { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 600; color: var(--navy); }
+  .day-card .day-date { font-size: 12px; color: var(--navy-soft); }
+  .day-card .day-waves { font-size: 11px; padding: 2px 8px; border-radius: 6px; background: rgba(168,218,220,0.3); color: var(--teal-deep); font-weight: 600; letter-spacing: 0.04em; }
+  .day-card .day-focus { font-size: 13px; color: var(--navy-soft); margin-bottom: 8px; font-style: italic; }
+  .day-card .day-points { padding-left: 20px; margin-bottom: 0; }
+  .day-card .day-points li { font-size: 13.5px; }
+  .effort-badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 6px; font-weight: 700; margin-left: 6px; }
+  .effort-7, .effort-8 { background: var(--warn-bg); color: var(--warn); }
+
+  .footer-actions { margin-top: 64px; padding: 28px; background: var(--white); border-radius: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; box-shadow: var(--shadow-sm); }
+  .footer-actions p { font-size: 13px; color: var(--navy-soft); max-width: 520px; }
+  .actions { display: flex; gap: 10px; }
+  .btn { background: var(--teal); color: var(--white); border: none; padding: 10px 18px; border-radius: 10px; font-weight: 600; font-size: 13px; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+  .btn:hover { background: var(--teal-deep); transform: translateY(-1px); }
+  .btn.ghost { background: var(--white); color: var(--teal); border: 1px solid var(--teal); }
+  .btn.ghost:hover { background: var(--cream); }
+
+  @media print {
+    body { background: white; }
+    .header { background: var(--navy) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .student-card, .day-highlights, .theme-card { break-inside: avoid; box-shadow: none; border: 1px solid var(--border); }
+    .footer-actions, .modal-overlay { display: none !important; }
+    .card-foot .open { display: none; }
+    main { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-top">
+      <div>
+        <div class="brand-eyebrow">Coaching Board · Day 2</div>
+        <h1 class="brand-title">Clinic Season Opener</h1>
+        <div class="brand-meta">
+          <span>Coach: Omer</span>
+          <span class="dot"></span>
+          <span id="today-date"></span>
+          <span class="dot"></span>
+          <span>5 students</span>
+          <span class="dot"></span>
+          <span>Day 2 waves: 2–3 ft</span>
+        </div>
+      </div>
+      <div class="header-stats">
+        <div class="stat-pill"><span class="num">5</span><span class="lbl">Surfers</span></div>
+        <div class="stat-pill"><span class="num">5</span><span class="lbl">Day 2 ✓</span></div>
+        <div class="stat-pill"><span class="num">4</span><span class="lbl">Intaked</span></div>
+        <div class="stat-pill"><span class="num">1</span><span class="lbl">⚠ Watch</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ALERTS -->
+  <div class="alerts">
+    <div class="alert">
+      <div class="alert-icon">!</div>
+      <div class="alert-body">
+        <strong>Roee — Injury trajectory wrong direction</strong>
+        <span>Day 1: 7/10 effort. Day 2 session 2: <strong>8/10 ⚠⚠</strong>. He's debating skipping evening session. New tactic deployed today: "two attacks per wave" + foam roller. Direct conversation needed tomorrow before water.</span>
+      </div>
+    </div>
+    <div class="alert info">
+      <div class="alert-icon">i</div>
+      <div class="alert-body">
+        <strong>Michal — Pre-clinic personal call still to book</strong>
+        <span>Day-of-water conversations are filling in the picture (inspiration figure, calmness, awareness), but the proper intake (goals, fears, lifestyle, sales) is still outstanding.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 2 highlights ribbon -->
+  <div class="day-highlights">
+    <h2>Day 2 highlights — what moved</h2>
+    <p class="sub">A snapshot of the biggest shifts across the cohort in 24 hours.</p>
+    <div class="highlight-row">
+      <div class="highlight-item" style="--accent: var(--jonathan);">
+        <div class="name">Jonathan</div>
+        <div class="what">Pop-up release on first wave today. Held the middle band. New work: hold the lean LONGER + ignore the mental clock.</div>
+      </div>
+      <div class="highlight-item" style="--accent: var(--tali);">
+        <div class="name">Tali</div>
+        <div class="what">Foot sequencing locked. Cutback length growing. Foam-fear surfaced — exits the rotation early. Foam-commit is the next unlock.</div>
+      </div>
+      <div class="highlight-item" style="--accent: var(--roee);">
+        <div class="name">Roee ⚠</div>
+        <div class="what">Cutback timing locked; Step 1 graduated. But effort 8/10 — body says no. "Two attacks" + foam roller deployed.</div>
+      </div>
+      <div class="highlight-item" style="--accent: var(--michal);">
+        <div class="name">Michal</div>
+        <div class="what">Cleanest jump in the cohort. Wider awareness, calmness, linked turns. Now: back-foot lift + learn to lift the nose.</div>
+      </div>
+      <div class="highlight-item" style="--accent: var(--koby);">
+        <div class="name">Koby</div>
+        <div class="what">Used the pop-up workaround → more waves. Discovered "gentle &gt; force" on his own. Phase 2 (use the speed) now open.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOARD -->
+  <div class="section-head">
+    <h2>The Board</h2>
+    <span class="hint">Click any card to open the full profile</span>
+  </div>
+
+  <div class="board" id="board"></div>
+
+  <!-- GROUP THEMES -->
+  <div class="themes-section">
+    <div class="section-head">
+      <h2>Group Themes — patterns across the cohort</h2>
+      <span class="hint">What's emerging in Day 2</span>
+    </div>
+    <div class="themes-grid">
+      <div class="theme-card" style="border-top-color: var(--teal);">
+        <h4>Compression → Extension</h4>
+        <p>Still central. Tali's lean is growing; Koby discovered gentle &gt; force; Roee says he didn't feel the need today (gap). Reintroduce explicitly.</p>
+      </div>
+      <div class="theme-card" style="border-top-color: var(--jonathan);">
+        <h4>Foot-positioning is unlocking</h4>
+        <p>Tali ✓, Michal ✓, Roee ✓. The "walk-back before the turn" rewire is landing across the cohort within 48 hours. Powerful.</p>
+      </div>
+      <div class="theme-card" style="border-top-color: var(--koby);">
+        <h4>"Gentle is the new attack"</h4>
+        <p>Koby discovered it; Jonathan needs it (rushing); Roee needs gradualness (shooting). Build a group warm-up around this idea.</p>
+      </div>
+      <div class="theme-card" style="border-top-color: var(--tali);">
+        <h4>Commitment to the foam</h4>
+        <p>Tali's the canonical case (exits early, fears foam). Koby is the counter-example (stuck close, said "easier when I'm near it"). Pair them in a debrief?</p>
+      </div>
+      <div class="theme-card" style="border-top-color: var(--michal);">
+        <h4>Wider awareness</h4>
+        <p>Michal's biggest gain. Jonathan's biggest miss (watching the clock and the longboarders). Worth a pre-paddle ritual for both.</p>
+      </div>
+      <div class="theme-card" style="border-top-color: var(--roee);">
+        <h4>⚠ Body management</h4>
+        <p>Roee is the obvious case but the pattern matters for everyone — fewer waves chased, more rest cycles, mandatory stretching. Set an expectation at dinner.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-actions">
+    <p>Updated by Coach Omer after Day 2. Each card shows current focus (Day 2). Open the modal for full status-tracked roadmap, Day 1 + Day 2 wave analyses, and the day log. To share, hit Print → Save as PDF.</p>
+    <div class="actions">
+      <button class="btn ghost" onclick="window.print()">Print / PDF</button>
+      <button class="btn" onclick="document.getElementById('board').scrollIntoView({behavior:'smooth'})">Back to Board ↑</button>
+    </div>
+  </div>
+</main>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-head" id="modal-head"></div>
+    <div class="modal-tabs" id="modal-tabs"></div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+const students = [
+  {
+    id: 'jonathan', name: 'Jonathan', initials: 'J',
+    color: 'var(--jonathan)', colorSoft: 'var(--jonathan-soft)',
+    level: 'Intermediate · Style', years: 8,
+    personalCue: 'Soft. Slow. Trust.',
+    cueExplain: 'Release the hands. Sleep in the lean. Trust where you land.',
+    badges: [{text: 'Intake ✓', cls: 'ok'}, {text: 'Day 2 ✓', cls: 'ok'}, {text: '↑ Improving', cls: 'improving'}],
+    approach: '<strong>Mental release, not strength.</strong> Day 2 shift: pop-up release landed. Watch the mental clock — he gets pulled out of his own water.',
+    currentPriorities: [
+      'Hold the lean LONGER — sleep in the rotation, don\'t rush',
+      'Intention with the gaze — eyes go where the body should go',
+      'Ignore the longboarders — your wave is yours'
+    ],
+    threePoints: [
+      'Hold the lean LONGER (don\'t rush the rotation)',
+      'Eyes go where the body should go (intention with gaze)',
+      'Stop watching the clock — your wave is coming'
+    ],
+    personal: {
+      title: 'Pre-clinic personal talk',
+      items: [
+        '<strong>8 years surfing.</strong> Biggest challenge: pop-up, especially backside.',
+        '<strong>Frontside:</strong> smooth flow, off-the-lip-ish on the carver.',
+        '<strong>Backside:</strong> robotic, hand stays low, can\'t pop-up cleanly.',
+        '<strong>One thing:</strong> crack backside pop-up + improve flow.',
+        '<strong>Self-awareness:</strong> very high.',
+        '<strong>Equipment:</strong> shortboard near the lower volume limit. Zero margin.',
+        '<strong>Preferred wave:</strong> reef break. Carver is helping flow.'
+      ],
+      day2: [
+        '<strong>Mental clock pressure (new).</strong> "I have this internal clock — longboarders take my waves, I get stressed."',
+        '<strong>Reframe given:</strong> longboarders take the big outside waves; the best shortboard rides hug the corner with the most wall.',
+        '<strong>Shoulder:</strong> 2-hour sessions are his max. PT ongoing. Foam roller mentioned.',
+        '<strong>Coach insight:</strong> the critical missing piece is sleeping LONGER in the lean — that creates flow for the next step, not another cutback.'
+      ]
+    },
+    approachFull: [
+      '<strong>Treat frontside and backside as separate teaching tracks.</strong>',
+      '<strong>Pop-up = mental release, not strength.</strong>',
+      '<strong>He\'s tight.</strong> Mobility/looseness work daily.',
+      '<strong>Carver translates for him</strong> — use between sessions.',
+      '<strong>Wave selection is the recurring weakness.</strong> First days: less maneuvers, more positioning.',
+      '<strong>Shortboard volume unforgiving</strong> — calm paddling + exact positioning are non-negotiable.',
+      '<strong>Reef break is his happy place.</strong>',
+      '<strong>NEW Day 2 — mental clock pressure.</strong> Build a pre-paddle ritual that puts him in his own water. Don\'t let comparison kill the focus.'
+    ],
+    day1Analysis: {
+      saw: [
+        'Wave calm, point-break style. Gentle on it, drawing long lines.',
+        'When wall fades, instinct is to crouch DOWN looking for power. Wrong place.',
+        'Power isn\'t down. Can\'t get back DOWN because he\'s dropping the wrong direction (point break = come back BEHIND him).',
+        'Pop-up is mental, not physical.',
+        'Wave selection: starting on sections with 4m of wall about to break. Too critical for his shortboard.'
+      ],
+      working: ['Gentle soft turns.', 'Reads the wave well.', 'Patient.'],
+      blocking: ['Looking for power down instead of behind.', 'Picks too-steep sections.', 'Pop-up mental block.', 'Reverts to "attack" mode.']
+    },
+    day2Analysis: {
+      saw: [
+        '<strong>Big win</strong> — took his time, moved foot forward on the pop-up. Footwork visible.',
+        'Power-chase: pressing back foot + fingers (good start), but scraping instead of completing rotation because focus is too far ahead.',
+        'Trying to SHORTEN the lean and RUSH it. Demo: I held the lean LONG, he saw the gap.',
+        'Successful wave: stayed in the middle, didn\'t go too high, didn\'t dig too deep. Clear win vs Day 1.',
+        'New realization: when wall is fast in front, doesn\'t always need to hit the wall. Stand tall, take speed forward (backside speed run).',
+        'First wave with new foot position: imprecise — slipped off. Legit for a first.'
+      ],
+      working: ['Pop-up release.', 'Middle band held.', 'Footwork showing up.'],
+      blocking: ['Lean too short — rushing the rotation.', 'No gaze intention.', 'Mental clock pressure.']
+    },
+    roadmap: [
+      {p: 1, title: 'Wave selection / positioning first.', status: 'improving', statusLabel: 'Day 2: Improving', statusNote: 'Better reads, occasionally still over-committing.', body: '4m of wall in front = walk away. Want ~1m about to break next to him.'},
+      {p: 2, title: 'Come back via rotation, not crouch.', status: 'improving', statusLabel: 'Day 2: Improving', statusNote: 'Pressing back foot, but scraping instead of completing rotation; gaze + longer lean are the missing pieces.', body: 'Pressure + rotation on the back foot → back to the foam. Cue: "Power isn\'t down. Power is the spin back."'},
+      {p: 3, title: 'Pop-up: mental release work (backside).', status: 'improved', statusLabel: 'Day 2: Improved ✓', statusNote: 'Released hands on the first wave today.', body: 'Daily 10-pop-up land drill (last 3 eyes closed).'},
+      {p: 4, title: 'Stay in the middle band.', status: 'improved', statusLabel: 'Day 2: Improved ✓', statusNote: 'Held the middle on the successful wave.', body: 'Cue: "Below the top, above the bottom — small smooth arcs."'},
+      {p: 5, title: 'Carver between sessions.', status: 'working', statusLabel: 'Day 2: Not addressed', statusNote: 'Reintroduce.', body: 'Reinforces flow, especially backside.'},
+      {p: 6, title: 'Tightness work.', status: 'working', statusLabel: 'Day 2: Not addressed', statusNote: 'Foam-roller mentioned. Build into daily rhythm.', body: 'Daily mobility/stretching.'},
+      {p: 7, title: 'More wave time = more mastery.', status: 'working', statusLabel: 'Day 2: Struggling', statusNote: 'Mental clock pressure + watching other surfers.', body: 'Cue: "Boring is the goal right now."'},
+      {p: 8, title: 'Hold the lean LONGER.', status: 'new', statusLabel: 'NEW Day 2', body: 'The lean is a slow, soft, deliberate sit-down. Cue: "Sleep in the lean." This is the actual generator of the figure-8 flow.', newD2: true},
+      {p: 9, title: 'Intention with the gaze.', status: 'new', statusLabel: 'NEW Day 2', body: 'Eyes go where the rotation goes. Cue: "Look where you\'re spinning."', newD2: true},
+      {p: 10, title: 'The wall doesn\'t always need a hit.', status: 'new', statusLabel: 'NEW Day 2', body: 'When wave runs fast in front, stand tall and take the speed forward.', newD2: true},
+      {p: 11, title: 'Mental clock + comparison.', status: 'new', statusLabel: 'NEW Day 2', body: 'Stop watching the longboarders. Cue: "Whose session is this? Whose clock?"', newD2: true}
+    ],
+    dayLog: [
+      {day: 1, date: '2026-05-25', waves: '1–2 ft', focus: 'Wave reading + flow analysis', wins: 'Soft beautiful turns, long wave time', next: 'Rotate back (not crouch); softer entries; backside pop-up',
+       points: ['Power isn\'t down, it\'s behind (rotation back)', 'Take the friendly entry', 'Small smooth arcs in the middle band']},
+      {day: 2, date: '2026-05-26', waves: '2–3 ft', focus: 'Hold the lean; pop-up release; mental clock work', wins: 'Pop-up release; held middle band; better footwork', next: 'Longer lean; gaze intention; ignore the longboarders',
+       points: ['Hold the lean LONGER (don\'t rush)', 'Eyes go where the body should go', 'Stop watching the clock — your wave is coming']}
+    ]
+  },
+  {
+    id: 'tali', name: 'Tali', initials: 'T',
+    color: 'var(--tali)', colorSoft: 'var(--tali-soft)',
+    level: 'Intermediate · Intuitive', years: 6,
+    personalCue: 'Down, up, all the way.',
+    cueExplain: 'Compress. Extend through the chest. Commit ALL the way to the foam.',
+    badges: [{text: 'Intake ✓', cls: 'ok'}, {text: 'Day 2 ✓', cls: 'ok'}, {text: '↑ Improving', cls: 'improving'}],
+    approach: '<strong>Foot sequencing landed.</strong> Now: foam-trust. She exits the cutback early because she\'s afraid of the whitewater. Naming the fear is the work.',
+    currentPriorities: [
+      'Commit to the foam — go ALL the way, don\'t exit early',
+      'Sharpen the turn — opens the shoulder, unlocks frontside cutbacks',
+      'Rhythm: 3 short turns, then LONG — always close with the long one'
+    ],
+    threePoints: [
+      'Commit to the foam — go ALL the way',
+      'Sharpen the turn — opens the shoulder',
+      'Rhythm: 3 shorts, then LONG'
+    ],
+    personal: {
+      title: 'Pre-clinic personal talk',
+      items: [
+        '<strong>6 years surfing.</strong> Core word: <strong>flow</strong>.',
+        '<strong>One thing:</strong> more flow + sharper cross-stepping (flow first).',
+        '<strong>Fears:</strong> big sets from far out, especially inside.',
+        '<strong>Quivers:</strong> CJ Nelson + Pyzel.',
+        '<strong>Style mix:</strong> "fire" — intense. Structured ladder + occasional push.',
+        '<strong>After Day 1:</strong> "Two things you told me already changed everything."'
+      ],
+      day2: [
+        '<strong>⚠ Day 2 personal-talk file is in an unmounted folder.</strong>',
+        'Path: <code>/Volumes/Clinics/Clinics/Angola 26/Clinic 1/Analysis/Tali Analysis/Tali d2 .txt</code>',
+        'Paste the contents in chat, or move it into the connected folder, and I\'ll fill this in.'
+      ]
+    },
+    approachFull: [
+      '<strong>Frame everything around flow.</strong>',
+      '<strong>Bring intention to the intuitive.</strong>',
+      '<strong>She likes refinement over flash.</strong> But introduce cross-stepping in parallel.',
+      '<strong>Push her sometimes.</strong> "Hello, GO!" when holding back.',
+      '<strong>Two boards in play.</strong> Choose by teaching goal.',
+      '<strong>"Scared + succeeding" is her sweet spot.</strong> Move her inside gradually.',
+      '<strong>NEW Day 2 — Foam-trust is the unlock.</strong> She exits cutback rotations early because she\'s afraid of the whitewater. Story-tell, name the fear, expect a few falls during the transition.'
+    ],
+    day1Analysis: {
+      saw: [
+        'Beautiful wave choice, reading the wall well.',
+        'Up-and-down flow clean — intuitively.',
+        'Bottom-to-top transition there but energy not released — compressing without extending.',
+        'Back-side hand drifts back behind hip.',
+        'Turns without re-positioning feet first.'
+      ],
+      working: ['Intuition.', '"I want to come back" instinct.', 'Clean entry, soft pop-up.'],
+      blocking: ['Compression without extension.', 'Back hand crossing midline.', 'Foot position not adjusted before turn.']
+    },
+    day2Analysis: {
+      saw: [
+        '<strong>Massive win.</strong> Yesterday\'s wave: foot forward, foot back, strong long turn, calms, straightens, gentle compression, more turns. Surfing very differently from morning to evening.',
+        '<strong>Lean is growing.</strong> Cutback turn getting longer. Time of lean improving.',
+        '<strong>BUT she exits the rotation too early.</strong> Still half-way — not committing all the way back to the foam.',
+        'Her own words: <em>"I\'m kind of afraid of the foam."</em>',
+        'The shape we want: figure-8. Compression generates speed, foam-tag loads energy for the next rotation. She pulls out before the load.',
+        '<strong>Sharper turn = bigger unlock.</strong> Sharp toe-side now opens up frontside cutbacks later.',
+        '<strong>Rhythm to introduce:</strong> heels–toes–heels–toes–LONG. 3 short, 4th long.'
+      ],
+      working: ['Motion is happening.', 'Not flinching from speed.', 'Big morning-to-evening shift.'],
+      blocking: ['Foam-fear — exits rotation early.', 'Rhythm uniform — no long closer.', 'Half-cutback feels safe — that\'s the trap.']
+    },
+    roadmap: [
+      {p: 1, title: 'Compress like a spring, then extend.', status: 'improving', statusLabel: 'Day 2: Improving', statusNote: 'Lean time growing visibly, extension still inconsistent.', body: 'Cue: "Knees bend at the bottom → push the chest up at the top."'},
+      {p: 2, title: 'Hand stays connected to the hip on back-side.', status: 'working', statusLabel: 'Day 2: Holding', statusNote: 'Not surfaced as a problem today.', body: 'Cue: "Imaginary line down your hip — back hand never crosses it."'},
+      {p: 3, title: 'Feet move BEFORE the turn, not during.', status: 'improved', statusLabel: 'Day 2: MAJOR ✓✓', statusNote: 'Sequencing landed. "Foot forward for speed, foot back for turn" visible across multiple waves.', body: 'Sequence: back foot → front foot → THEN turn.'},
+      {p: 4, title: 'Bring intention to the intuitive.', status: 'improving', statusLabel: 'Day 2: Mixed', statusNote: 'She\'s intuitively close to the foam but doesn\'t trust it.', body: 'Build conscious checkpoints.'},
+      {p: 5, title: 'Cross-step drill on the CJ.', status: 'working', statusLabel: 'Day 2: Not addressed', statusNote: '', body: 'Frame as a 1–2 year body-rewiring project.'},
+      {p: 6, title: 'Inside-section confidence.', status: 'working', statusLabel: 'Day 2: Not addressed', statusNote: '', body: 'Gradually move her closer to inside.'},
+      {p: 7, title: 'Commit to the foam.', status: 'new', statusLabel: 'NEW Day 2', body: 'Exits cutback early — foam is a PARTNER, another energy source. Expect a few falls during transition. Cue: "Let the foam caress you, then straighten up."', newD2: true},
+      {p: 8, title: 'Sharpen the turn.', status: 'new', statusLabel: 'NEW Day 2', body: 'Sharper toe-side now opens the shoulder. Then frontside cutbacks open.', newD2: true},
+      {p: 9, title: 'Rhythm: 3 shorts + 1 LONG.', status: 'new', statusLabel: 'NEW Day 2', body: 'Always close with the long turn. Visual: Tzachi\'s surfing — alegance.', newD2: true}
+    ],
+    dayLog: [
+      {day: 1, date: '2026-05-25', waves: '1–2 ft', focus: 'Wave reading + flow analysis', wins: 'Beautiful wave choice, soft flow', next: 'Compression→extension; hand at hip',
+       points: ['Down-and-up like a spring', 'Back hand stays at the hip', 'Move feet before turning back']},
+      {day: 2, date: '2026-05-26', waves: '2–3 ft', focus: 'Foot sequencing locked, cutback length growing', wins: 'Foot-walk visible, lean time up, big style shift', next: 'Commit to foam; sharpen the turn; rhythm',
+       points: ['Commit to the foam — go ALL the way', 'Sharpen the turn — opens the shoulder', 'Rhythm: 3 shorts, then LONG']}
+    ]
+  },
+  {
+    id: 'roee', name: 'Roee', initials: 'R',
+    color: 'var(--roee)', colorSoft: 'var(--roee-soft)',
+    level: 'Intermediate · Injury watch', years: 12,
+    personalCue: 'Sit, breathe, build.',
+    cueExplain: 'Sit between waves. Breathe before each one. Build the motion — don\'t shoot it.',
+    badges: [{text: '⚠ 8/10 effort', cls: 'warn'}, {text: 'Day 2 ✓', cls: 'ok'}, {text: '↑ Cutback locked', cls: 'improving'}],
+    approach: '<strong>⚠ Injury trajectory wrong direction.</strong> Day 1: 7/10. Day 2: 8/10. Foam roller deployed, "two attacks per wave" tactic given. Have the direct conversation tomorrow.',
+    currentPriorities: [
+      '⚠ Two attacks per wave: catch, SIT. Catch, SIT. Foam roller before sleep.',
+      'Gradualness — wait, don\'t shoot. Hand opening + leg pressure sync.',
+      'Heel-side: rotate FIRST, then press forward (don\'t dump on front leg).'
+    ],
+    threePoints: [
+      '⚠ Two attacks: catch, SIT. Catch, SIT. Foam roller.',
+      'Gradualness — wait, don\'t shoot. Hand + leg sync.',
+      'Heel-side: rotate FIRST, then press forward.'
+    ],
+    personal: {
+      title: 'Pre-clinic personal talk',
+      items: [
+        '<strong>~12 years surfing.</strong> Self-rates beginner-intermediate.',
+        '<strong>Theory level:</strong> high. Practical level: lower.',
+        '<strong>One thing:</strong> preserve speed through bottom turn.',
+        '<strong>Big want:</strong> wave reading.',
+        '<strong>⚠ Injury:</strong> shoulder tendinosis, long-term physio.',
+        '<strong>Effort Day 1:</strong> 7/10 — already too high.',
+        '<strong>Equipment:</strong> wants shortboard mid-trip. Coach: not yet.'
+      ],
+      day2: [
+        '<strong>Board talk:</strong> shortboard (sharper, more thrill, more error) vs mid-length (floats, flows, waits). He listened.',
+        '<strong>⚠ Yesterday\'s second session was 8/10.</strong> Debating skipping evening. "If I continue like this, won\'t be OK."',
+        '<strong>Source of intensity:</strong> not the surf — it\'s the paddling pattern. Catch, paddle back, immediately catch again. No rest.',
+        '<strong>He\'s contradicting himself:</strong> wants to lower load but won\'t sit longer. Called out directly.',
+        '<strong>Coach prescription:</strong> "Two attacks per wave" (catch + sit, sit + wait). Foam roller given for self-massage before sleep, against the wall.',
+        '<strong>Day 1 cue still not lived:</strong> chest-rising extension — he says "didn\'t feel the need" today. Reintroduce.'
+      ]
+    },
+    approachFull: [
+      '<strong>⚠ INJURY-FIRST. Then teach.</strong>',
+      '<strong>Volume strategy:</strong> shorter sessions OR longer rest. He chooses.',
+      '<strong>Stretching mandatory.</strong> Foam roller before sleep, against the wall.',
+      '<strong>Shortboard temptation:</strong> hold him back.',
+      '<strong>He\'ll push past pain.</strong> Be the brake even when he resists.',
+      '<strong>One cue per wave.</strong>',
+      '<strong>Always explain the WHY.</strong>',
+      '<strong>NEW Day 2 — Gradualness, not shooting.</strong> Slamming the shoulder open all at once. The fix: hand opening AND leg pressure ramp TOGETHER.',
+      '<strong>NEW Day 2 — Don\'t chase off-the-lip yet.</strong> 4-stage progression: foot back ✓ → cutback length [now] → energy connection → off-the-lip (stage 4).'
+    ],
+    day1Analysis: {
+      saw: [
+        'Generates good speed, picks good waves.',
+        'Copy-pasting the same line.',
+        'When wall goes flat, keeps running instead of pausing.',
+        'Energy trapped DOWN — scraping hand, pushing through toes.',
+        'Stance too far forward.'
+      ],
+      working: ['Strong speed generation.', 'Good wave selection.', 'Has the bend.'],
+      blocking: ['One-trick rhythm.', 'No extension up.', 'Feet too forward.', 'Doesn\'t recognize when to wait.']
+    },
+    day2Analysis: {
+      saw: [
+        '<strong>Proof of improvement.</strong> Now catching the moment the wall disappears and doing the cutback correctly.',
+        '<strong>Step 1 graduated.</strong> Foot position improved from yesterday.',
+        '<strong>Now at Step 2:</strong> maximize the motion. Right now he\'s SHOOTING the rotation — slamming the shoulder open all at once.',
+        '<strong>The fix is gradualness.</strong> Hand opening + leg pressure ramp TOGETHER, synced. Slow start, gradually intensify.',
+        '<strong>Heel-side turn is stuck.</strong> Strong toe-side, no heel-side. Dumping responsibility on the FRONT leg jams the rotation.',
+        '<strong>Correct heel-side sequence:</strong> compress → straighten → maintain back-foot pressure → rotate the board DOWN. THEN press forward.',
+        '<strong>Don\'t chase off-the-lip yet.</strong> Mixing bottom-turn types. Wide = cutback, sharp = off-the-lip. Cutback fundamentals first.'
+      ],
+      working: ['Cutback connecting.', 'Back-foot position improved.', 'Reading the wave well.'],
+      blocking: ['Shooting (not gradual).', 'Heel-side rotation stuck.', 'Wants to skip ahead.', 'Ego on session volume.']
+    },
+    roadmap: [
+      {p: 0, title: '⚠ Injury management.', status: 'deteriorating', statusLabel: 'Day 2: DETERIORATING ⚠⚠', statusNote: '8/10 yesterday. Foam roller deployed. Conversation went deeper.', body: 'Two attacks per wave OR shorter sessions. Foam roller before sleep. Mandatory stretching.'},
+      {p: 1, title: 'Decision-making on a flat wall.', status: 'improved', statusLabel: 'Day 2: MAJOR ✓', statusNote: 'Cutback at the right moment, visible on tape.', body: 'Cue: "When it dies, go get it back."'},
+      {p: 2, title: 'Walk the feet BACK before the turn.', status: 'mastered', statusLabel: 'Day 2: GRADUATED ✓✓', statusNote: '"Step 1 done." Foot positioning improved.', body: 'Cue: "Tap-tap fast, then turn."'},
+      {p: 3, title: 'Release energy UP through extension.', status: 'working', statusLabel: 'Day 2: Still working', statusNote: 'He says "didn\'t feel the need." The cue isn\'t lived yet.', body: 'Reintroduce one wave at a time.'},
+      {p: 4, title: 'Try a longboard / glider for cutback practice.', status: 'working', statusLabel: 'Day 2: Not addressed', statusNote: '', body: 'Time + forgiveness to feel the cutback rhythm.'},
+      {p: 5, title: 'Lean in HARD on the double-ups.', status: 'working', statusLabel: 'Day 2: Not addressed', statusNote: '', body: 'Best walls on offer.'},
+      {p: 6, title: 'Gradualness, not shooting.', status: 'new', statusLabel: 'NEW Day 2', body: 'Hand opening + leg pressure ramp TOGETHER, synchronized. Slight hand = slight leg. More hand = more leg. Cue: "Don\'t shoot. Build it."', newD2: true},
+      {p: 7, title: 'Heel-side: rotate FIRST, then press.', status: 'new', statusLabel: 'NEW Day 2', body: 'Front leg takes over and jams everything. Sequence: compress → straighten → maintain back-foot pressure → rotate board DOWN → THEN press forward.', newD2: true},
+      {p: 8, title: 'Don\'t chase off-the-lip yet.', status: 'new', statusLabel: 'NEW Day 2', body: '4-stage progression: foot back ✓ → cutback length [now] → energy connection → off-the-lip (stage 4, not now).', newD2: true}
+    ],
+    dayLog: [
+      {day: 1, date: '2026-05-25', waves: '1–2 ft', focus: 'Wave reading + stance analysis', effort: '7/10 ⚠', wins: 'Good speed, great wave eye', next: 'Lower intensity; foot-walk back; extension',
+       points: ['Cap intensity ~5/10 — stretch', 'When the wall dies, go back to the foam', 'Tap-tap feet back BEFORE turning']},
+      {day: 2, date: '2026-05-26', waves: '2–3 ft', focus: 'Cutback connecting; gradualness intro', effort: '8/10 ⚠⚠', wins: 'Cutback timing locked, foot position improved', next: 'Two attacks per wave; gradualness; heel-side rotate-first',
+       points: ['⚠ Two attacks: catch, SIT. Catch, SIT. Foam roller.', 'Gradualness — wait, don\'t shoot. Hand + leg sync.', 'Heel-side: rotate FIRST, then press forward.']}
+    ]
+  },
+  {
+    id: 'michal', name: 'Michal', initials: 'M',
+    color: 'var(--michal)', colorSoft: 'var(--michal-soft)',
+    level: 'Intermediate · Driven', years: null,
+    personalCue: 'Wide eyes, calm hands.',
+    cueExplain: 'See the whole space — not just in front. Stay loose so movement stays available.',
+    badges: [{text: 'Intake pending', cls: 'warn'}, {text: 'Day 2 ✓', cls: 'ok'}, {text: '↑↑ Big jump', cls: 'improving'}],
+    approach: '<strong>Cleanest jump in the cohort.</strong> Day 2: came in calmer, wider view, real linked turns. Now: back-foot lift + learn to lift the nose. Manage the comparison instinct.',
+    currentPriorities: [
+      'Back foot LIFTS and places on the astrodek (conscious lift, not slide)',
+      'Steep wave = pivot from BACK, lift the nose, rotate',
+      'Inspiration as horizon, not yardstick — "their wave is theirs, yours is yours"'
+    ],
+    threePoints: [
+      'Back foot LIFTS and places on the astrodek',
+      'Steep wave = pivot from back, lift the nose',
+      'Stay wide-awake to the whole space'
+    ],
+    personal: {
+      title: 'Personal call — still pending',
+      items: [
+        'Pre-clinic intake call hasn\'t been recorded yet.',
+        'Day-of-water conversations are starting to fill in: she has a surfer she follows for inspiration, she came in calmer today, wider awareness is growing fast.'
+      ],
+      day2: [
+        '<strong>Inspiration figure on Instagram</strong> — follows a surfer, watches what they do. Reframed: "Set them as a horizon target, not a measuring stick."',
+        '<strong>Compression-extension self-awareness:</strong> "I understand it but don\'t have the technique yet." Coach: more wave-time first.',
+        '<strong>Front foot first improving.</strong> Now the back foot too — lift consciously, place on the astrodek (the grip).',
+        '<strong>Her words about Day 2:</strong> <em>"I came in much calmer. Not trying to go wild. Tried to be aware: which wave can I take, which isn\'t worth it. Once on the wave, turn face, see where the power is."</em>',
+        '<strong>Her breakthrough (her telling):</strong> <em>"One wave I took my time, pop-up wasn\'t perfect but I understood it was mine. Calmed down, only THEN went up. Best moment I saw."</em>',
+        '<strong>Coach reframe of her concept:</strong> "Stop and decide in real time" — that\'s the foundation for everything coming next.'
+      ]
+    },
+    approachFull: [
+      '<strong>The foot-order rewire is the single highest-leverage thing.</strong> Front first, then back. 10 min EVERY session.',
+      '<strong>She tunnel-visions</strong> — Day 2 she came in calmer. Reinforce.',
+      '<strong>Tension shuts her down.</strong> Day 2 she said "I was completely relaxed." Protect that.',
+      '<strong>She\'s ready for off-the-lip</strong> — but compression-extension needs more wave-time first.',
+      '<strong>Mid-length board:</strong> 3 stance positions. Play between them.',
+      '<strong>Hungry — high effort.</strong> Don\'t mistake effort for progress.',
+      '<strong>NEW Day 2 — Inspiration figure.</strong> Frame as a horizon target, not measuring stick. Watch the comparison instinct.'
+    ],
+    day1Analysis: {
+      saw: [
+        'Beautiful wave. Compression-extension correctly on entry.',
+        'Section closed on her — kept fighting instead of choosing exit.',
+        'Hasn\'t tried off-the-lip yet.',
+        'Foot work: back foot first, then front. Need to FLIP.',
+        'Mid-trance pattern: sees, wants, attacks.',
+        'When over-bent and tense, can\'t move.'
+      ],
+      working: ['Compression-extension on entry.', 'Strong drive.', 'High engagement.'],
+      blocking: ['Old foot pattern.', 'Tunnel-vision.', 'Tension shutting down movement.']
+    },
+    day2Analysis: {
+      saw: [
+        '<strong>AWARENESS — huge expansion.</strong> Yesterday: aware of just immediate area. Today: reading the wider space.',
+        '<strong>Best wave today:</strong> CLOCKED the flat wall, went back, touched the foam, got speed, repeated. Real linked-turn rhythm.',
+        '<strong>Sequence she pulled off:</strong> lean back, foot back, turn, get speed, stand tall and relaxed, repeat.',
+        '<strong>HUGE improvement in understanding of the situation.</strong>',
+        'Her felt sense: <em>"I\'m waiting, looking back myself, in correct rhythm. I was completely relaxed."</em>',
+        '<strong>Now the next layer — back foot rewire.</strong> Not really LIFTING the back foot. Needs to lift and place on the astrodek explicitly.',
+        '<strong>Steep-wave caveat:</strong> stands too forward, board sinks and bombs. For survival exit on a steep wave: pivot from BACK, lift the nose, rotate. "Lifting the nose" doesn\'t exist in her toolkit yet.'
+      ],
+      working: ['Wider-view awareness.', 'Calm decision-making.', 'Front foot first happening.', 'Reading flat walls and going back.'],
+      blocking: ['Back foot reactive, not lifted-and-placed.', '"Lifting the nose" missing.', 'Inspiration/comparison instinct.']
+    },
+    roadmap: [
+      {p: 1, title: 'Flip the foot order: FRONT foot first, then back.', status: 'improving', statusLabel: 'Day 2: Improving ✓', statusNote: 'Real progress on front foot. Now layering back-foot work.', body: '10-min daily land drill.'},
+      {p: 2, title: 'Read the closeout, choose an exit.', status: 'improved', statusLabel: 'Day 2: MAJOR ✓✓', statusNote: 'Clocked the flat wall on tape, made the right call. Linked turns showed up.', body: 'Three options: escape with speed / off-the-lip / cutback.'},
+      {p: 3, title: 'First off-the-lip attempt.', status: 'working', statusLabel: 'Day 2: Still working', statusNote: 'Waves offering it, foundations come first.', body: 'Frame: "When you\'d otherwise bail, send it up instead."'},
+      {p: 4, title: 'Relax to access movement.', status: 'improved', statusLabel: 'Day 2: BIG SHIFT ✓✓', statusNote: '"Came in much calmer," "completely relaxed." Protect the gain.', body: 'Cue: "Loose feet, soft hands — THEN attack."'},
+      {p: 5, title: 'Pull back from tunnel vision.', status: 'improved', statusLabel: 'Day 2: Widened ✓', statusNote: 'Reading the whole space now. Hold the gain.', body: 'Cue: "One breath out, then go."'},
+      {p: 6, title: 'Back foot LIFTS and places on the astrodek.', status: 'new', statusLabel: 'NEW Day 2', body: 'Conscious lift, not a slide. Astrodek mark is her cue — "I\'m in the right position to pivot."', newD2: true},
+      {p: 7, title: 'Learn to "lift the nose".', status: 'new', statusLabel: 'NEW Day 2', body: 'On a steep wave needing survival exit: pivot from BACK, lift nose, rotate. Drill on land first.', newD2: true},
+      {p: 8, title: 'Inspiration as horizon, not yardstick.', status: 'new', statusLabel: 'NEW Day 2', body: 'The surfer she follows is a target on the horizon. Cue: "Their wave is theirs. Yours is yours."', newD2: true}
+    ],
+    dayLog: [
+      {day: 1, date: '2026-05-25', waves: '1–2 ft', focus: 'Wave reading + foot-pattern', wins: 'Compression-extension on entry; strong drive', next: 'Foot order rewire; closeout decisions',
+       points: ['Front foot FIRST', 'Stop fighting closeouts — choose a door', 'Loose first, then attack']},
+      {day: 2, date: '2026-05-26', waves: '2–3 ft', focus: 'Wider awareness + calmness + back-foot rewire', wins: 'Wide view, real linked turns, "completely relaxed"', next: 'Back foot lift; lifting the nose; manage inspiration',
+       points: ['Back foot LIFTS and places on the astrodek', 'Steep wave = pivot from back, lift the nose', 'Stay wide-awake to the whole space']}
+    ]
+  },
+  {
+    id: 'koby', name: 'Koby', initials: 'K',
+    color: 'var(--koby)', colorSoft: 'var(--koby-soft)',
+    level: 'Beginner-Intermediate', years: 4,
+    personalCue: 'Gentle and tall.',
+    cueExplain: 'Soft pressure, not force. Stand tall — don\'t dig. Stay UP one extra second.',
+    badges: [{text: 'Intake ✓', cls: 'ok'}, {text: 'Day 2 ✓', cls: 'ok'}, {text: '↑ Confidence up', cls: 'improving'}],
+    approach: '<strong>Pop-up workaround landed.</strong> Discovered "gentle &gt; force" on his own (own it with him). Phase 2 (use the speed) now open.',
+    currentPriorities: [
+      'Gentle pressure works better than force (he discovered this himself)',
+      'Use the SPEED — body extension forward, don\'t fly off the back',
+      'Stay UP one extra second — accept going too high, learn the rhythm'
+    ],
+    threePoints: [
+      'Gentle pressure works better than force',
+      'Use the SPEED — body extension forward',
+      'Stay UP one extra second'
+    ],
+    personal: {
+      title: 'Pre-clinic personal talk',
+      items: [
+        '<strong>4 years surfing.</strong> Beginner-intermediate, hasn\'t shifted.',
+        '<strong>Biggest wish:</strong> more waves + bigger waves + cutback.',
+        '<strong>Visual ideal:</strong> smooth, clean surfing.',
+        '<strong>Pattern:</strong> tries new moves once, doesn\'t break through.',
+        '<strong>Self-talk:</strong> "I give up on myself" — explicitly asked to be pushed.',
+        '<strong>Fear:</strong> undefined origin. NOT afraid of wipeouts. ← contradiction.',
+        '<strong>One thing:</strong> 3-4 enjoyable waves (you raised to 8).',
+        '<strong>Personal:</strong> wife Shua — meet her.'
+      ],
+      day2: [
+        '<strong>He used the workaround:</strong> <em>"If I\'m not sure about pop-up, I lay on belly, wait, stick to the wave on the corner, do the pop-up when there\'s free time, no pressure."</em>',
+        '<strong>It worked.</strong> "Gave me options to catch waves without pressure."',
+        '<strong>Last wave especially:</strong> <em>"I really succeeded sticking close. Kept aware of where I am and where the foam is."</em>',
+        '<strong>Insight:</strong> "Way easier when I\'m near the foam."',
+        '<strong>Coach correction:</strong> goal isn\'t snaps. Goal is enjoyment. "Show me the spray!"',
+        '<strong>New question:</strong> hard to read front-side wave — it surprises him. Coach: different ocean from the pool, adjustment time.'
+      ]
+    },
+    approachFull: [
+      '<strong>Be the external push</strong> — Day 2 he activated himself more. Trust building.',
+      '<strong>Real ceiling is FEAR</strong> — but he handled it better on Day 2.',
+      '<strong>Pop-up workaround = PRO move.</strong> He used it. Reinforce dignity.',
+      '<strong>Manage expectations.</strong> Target 8 enjoyable waves. Today closer.',
+      '<strong>Weight distribution</strong> — gentle pressure works better than force (his Day 2 discovery).',
+      '<strong>NEW Day 2 — Phase 2:</strong> use the speed. Body extension forward. Stay up an extra second.',
+      '<strong>Personal:</strong> wife Shua still on the list.'
+    ],
+    day1Analysis: {
+      saw: [
+        'Front-knee-stuck on pop-up.',
+        'Drops too low on the wall, gets stuck mid-face.',
+        'Losing speed by going too deep.',
+        'Pressure through toes, no extension.',
+        'Entry angle pointed at shore.'
+      ],
+      working: ['Attentive, patient.', 'Strong head.', 'Gets concept verbally.'],
+      blocking: ['Pop-up biomechanics.', 'Wrong line.', 'No extension.', 'Approach angle.', 'Fear loop.']
+    },
+    day2Analysis: {
+      saw: [
+        '<strong>Beautiful wave he loved.</strong> Dropped, waited, built. Up, down, maneuvered well.',
+        '<strong>Phase 3 introduced</strong> — descent from the wall. Requires compression with pressure on back foot.',
+        '<strong>Big "aha":</strong> <em>"I did it most gently and discovered it worked much better than yesterday by force."</em> He owns this insight.',
+        '<strong>Right call on continuing</strong> — wave kept opening, didn\'t need a cutback return. He saw it.',
+        '<strong>Fish jumped.</strong> Big one. Trip-joy moment.',
+        '<strong>Phase 1 ✓.</strong> Phase 2: USE the speed. Body extension forward. Don\'t fly backward off the back.',
+        'Don\'t transition too fast from toes to heels — there should be a MIDDLE moment.',
+        '<strong>Stay UP one extra second.</strong> Don\'t fear going too high. Higher = more descent distance = ~30% more speed.'
+      ],
+      working: ['Pop-up workaround landed.', 'Reading wall and staying close.', 'Discovered gentle > force on his own.', 'Right wave choices.'],
+      blocking: ['Front-side wave timing.', 'Toe-to-heel transition too fast.', 'Leaves the high position too early.']
+    },
+    roadmap: [
+      {p: 1, title: 'Pop-up workaround (mental + physical).', status: 'improved', statusLabel: 'Day 2: DEPLOYED ✓✓', statusNote: 'Used the half-belly approach. "Gave me options to catch waves without pressure."', body: 'Strategy: pull harder, twist head, push more. Even half-wave on belly to get through.'},
+      {p: 2, title: 'Address the fear loop.', status: 'improving', statusLabel: 'Day 2: Better', statusNote: 'More relaxed today, more aware of position relative to foam.', body: 'Land conversation: "You don\'t fear wipeouts. What are you actually afraid of?"'},
+      {p: 3, title: 'Stay in the upper portion of the wall.', status: 'improving', statusLabel: 'Day 2: Improving ✓', statusNote: 'Stuck tight to the wall, didn\'t dig as much.', body: 'Cue: "Don\'t dig to the bottom — climb from the middle."'},
+      {p: 4, title: 'Soft entry angle.', status: 'improved', statusLabel: 'Day 2: ✓', statusNote: 'Stuck to the corner instead of pointing at the beach.', body: 'Cue: "Go ALONG the wall, not AT the beach."'},
+      {p: 5, title: 'Compress + extend, not just press.', status: 'improving', statusLabel: 'Day 2: Big move', statusNote: 'Discovered GENTLE pressure works better than force. Extension still next.', body: 'Knee bend → body extension up.'},
+      {p: 6, title: 'Soften the turns.', status: 'improved', statusLabel: 'Day 2: ✓', statusNote: '"Gently worked much better than yesterday\'s force."', body: 'Less hard turning. Stay connected.'},
+      {p: 7, title: 'Weight distribution (back straight, knees work).', status: 'working', statusLabel: 'Day 2: Not directly addressed', statusNote: '', body: 'Cue: "Tall back, busy knees."'},
+      {p: 8, title: 'Phase 2: USE the speed.', status: 'new', statusLabel: 'NEW Day 2', body: 'Body extension forward, don\'t fly backward off the back. Cue: "Send it forward, not behind."', newD2: true},
+      {p: 9, title: 'Middle zone in the toe-to-heel transition.', status: 'new', statusLabel: 'NEW Day 2', body: 'Sequence: toe-press → MIDDLE moment → heel-press. The middle is where the board keeps climbing.', newD2: true},
+      {p: 10, title: 'Stay UP one extra second.', status: 'new', statusLabel: 'NEW Day 2', body: 'Higher = ~30% more descent distance = more speed. Cue: "One more second up there."', newD2: true},
+      {p: 11, title: 'Front-side wave reading.', status: 'new', statusLabel: 'NEW Day 2', body: 'Ocean breaks differently from the pool. Acknowledge it. Cue: "The ocean takes time. You\'re 4 years in. We\'re patient."', newD2: true}
+    ],
+    dayLog: [
+      {day: 1, date: '2026-05-25', waves: '1–2 ft', focus: 'Pop-up + wave-line analysis', wins: 'Patient, reads whitewater well', next: 'Pop-up workaround; stay upper-wall; FEAR talk',
+       points: ['Survive the section (any way), then ride', 'Stay upper wall — don\'t dig', 'Approach the wall at an angle, not at the beach']},
+      {day: 2, date: '2026-05-26', waves: '2–3 ft', focus: 'Pop-up workaround deployed; Phase 2 introduced', wins: 'Used workaround successfully; "gentle > force" insight; spray', next: 'Body extension forward; middle zone; stay up 1 sec more',
+       points: ['Gentle pressure works better than force', 'Use the SPEED — body extension forward', 'Stay UP one extra second']}
+    ]
+  }
+];
+
+// RENDER
+const today = new Date('2026-05-26');
+document.getElementById('today-date').textContent = today.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+
+const board = document.getElementById('board');
+students.forEach(s => {
+  const card = document.createElement('div');
+  card.className = 'student-card';
+  card.innerHTML = `
+    <div class="card-band" style="background: ${s.color};"></div>
+    <div class="card-head">
+      <div class="avatar" style="background: ${s.color};">${s.initials}</div>
+      <div style="flex:1;">
+        <h3>${s.name}</h3>
+        <div style="font-size:12px; color: var(--navy-soft); margin-top:2px;">${s.level}${s.years ? ' · ' + s.years + ' yrs' : ''}</div>
+        <div class="badges">
+          ${s.badges.map(b => `<span class="badge ${b.cls}">${b.text}</span>`).join('')}
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="mantra" style="--accent: ${s.color};">
+        <div class="mantra-label">🌊 In-Water Cue</div>
+        <div class="mantra-text">${s.personalCue}</div>
+        <div class="mantra-explain">${s.cueExplain}</div>
+      </div>
+      <div class="approach" style="color: ${s.color}; background: ${s.colorSoft};">${s.approach}</div>
+      <div>
+        <div class="label">Day 2 current focus</div>
+        <ul class="priority-list" style="color: ${s.color};">
+          ${s.currentPriorities.map(p => `<li><span>${p}</span></li>`).join('')}
+        </ul>
+      </div>
+      <div class="three-points">
+        <div class="label">Today's 3-points (Day 2)</div>
+        <ol>${s.threePoints.map(p => `<li>${p}</li>`).join('')}</ol>
+      </div>
+    </div>
+    <div class="card-foot">
+      <span style="color: var(--navy-soft);">Day ${s.dayLog.length} of clinic</span>
+      <span class="open" onclick="openModal('${s.id}')">View full profile →</span>
+    </div>
+  `;
+  board.appendChild(card);
+});
+
+function statusClass(s) {
+  return ({
+    'improved': 'status-improved',
+    'improving': 'status-improving',
+    'working': 'status-working',
+    'deteriorating': 'status-deteriorating',
+    'new': 'status-new',
+    'mastered': 'status-mastered'
+  })[s] || 'status-working';
+}
+
+function openModal(id) {
+  const s = students.find(x => x.id === id);
+  if (!s) return;
+
+  document.getElementById('modal-head').style.background = `linear-gradient(135deg, ${s.color} 0%, var(--navy-soft) 180%)`;
+  document.getElementById('modal-head').innerHTML = `
+    <div class="avatar" style="background: rgba(255,255,255,0.2);">${s.initials}</div>
+    <div style="flex:1;">
+      <h2>${s.name}</h2>
+      <div class="meta">${s.level}${s.years ? ' · ' + s.years + ' years surfing' : ''} · ${s.dayLog.length} days analyzed</div>
+    </div>
+    <button class="modal-close" onclick="closeModal()">×</button>
+  `;
+
+  const tabs = [
+    { id: 'approach', label: 'How to approach' },
+    { id: 'personal', label: 'Personal' },
+    { id: 'analyses', label: 'Wave analyses' },
+    { id: 'roadmap', label: `Roadmap (${s.roadmap.length})` },
+    { id: 'log', label: `Day log (${s.dayLog.length})` }
+  ];
+  document.getElementById('modal-tabs').innerHTML = tabs.map((t, i) =>
+    `<button class="tab-btn ${i === 0 ? 'active' : ''}" onclick="switchTab('${t.id}', this)">${t.label}</button>`
+  ).join('');
+
+  document.getElementById('modal-body').innerHTML = `
+    <div class="tab-pane active" id="pane-approach">
+      <div class="mantra" style="--accent: ${s.color}; margin-bottom: 18px;">
+        <div class="mantra-label">🌊 In-Water Cue</div>
+        <div class="mantra-text">${s.personalCue}</div>
+        <div class="mantra-explain">${s.cueExplain}</div>
+      </div>
+      <div class="callout ${s.id === 'roee' ? 'warn' : ''}" style="${s.id !== 'roee' ? `border-left-color: ${s.color};` : ''}">
+        ${s.approach}
+      </div>
+      <h3>How to coach this person</h3>
+      <ul>${s.approachFull.map(x => `<li>${x}</li>`).join('')}</ul>
+    </div>
+    <div class="tab-pane" id="pane-personal">
+      <h3>${s.personal.title}</h3>
+      <ul>${s.personal.items.map(x => `<li>${x}</li>`).join('')}</ul>
+      ${s.personal.day2 ? `<h3>Day 2 update</h3><ul>${s.personal.day2.map(x => `<li>${x}</li>`).join('')}</ul>` : ''}
+    </div>
+    <div class="tab-pane" id="pane-analyses">
+      <h3>Day 1 — Wave Analysis <span style="font-size: 12px; color: var(--navy-soft); font-weight: 400;">(waves 1–2 ft)</span></h3>
+      <h4>What I saw</h4>
+      <ul>${s.day1Analysis.saw.map(x => `<li>${x}</li>`).join('')}</ul>
+      <h4>What's working</h4>
+      <ul>${s.day1Analysis.working.map(x => `<li>${x}</li>`).join('')}</ul>
+      <h4>What's blocking progression</h4>
+      <ul>${s.day1Analysis.blocking.map(x => `<li>${x}</li>`).join('')}</ul>
+
+      <h3>Day 2 — Wave Analysis <span style="font-size: 12px; color: var(--navy-soft); font-weight: 400;">(waves 2–3 ft)</span></h3>
+      <h4>What I saw</h4>
+      <ul>${s.day2Analysis.saw.map(x => `<li>${x}</li>`).join('')}</ul>
+      <h4>What's working</h4>
+      <ul>${s.day2Analysis.working.map(x => `<li>${x}</li>`).join('')}</ul>
+      <h4>What's blocking progression</h4>
+      <ul>${s.day2Analysis.blocking.map(x => `<li>${x}</li>`).join('')}</ul>
+    </div>
+    <div class="tab-pane" id="pane-roadmap">
+      <h3>Roadmap — Day 1 priorities (status-tracked) + Day 2 additions</h3>
+      ${s.roadmap.map(r => `
+        <div class="roadmap-item ${r.newD2 ? 'new-d2' : ''}" style="--accent: ${s.color};">
+          <h4>
+            <span>Priority ${r.p} — ${r.title}</span>
+            ${r.statusLabel ? `<span class="status ${statusClass(r.status)}">${r.statusLabel}</span>` : ''}
+          </h4>
+          ${r.statusNote ? `<div class="status-note">${r.statusNote}</div>` : ''}
+          <p>${r.body}</p>
+        </div>
+      `).join('')}
+    </div>
+    <div class="tab-pane" id="pane-log">
+      <h3>Day log</h3>
+      <p style="font-size:13px; color: var(--navy-soft); margin-bottom: 14px;">Sessions accumulate here as the clinic progresses.</p>
+      <div class="day-timeline">
+        ${s.dayLog.map(d => `
+          <div class="day-card" style="--accent: ${s.color};">
+            <div class="day-head">
+              <span class="day-label">Day ${d.day}${d.effort ? `<span class="effort-badge effort-${parseInt(d.effort)}">Effort ${d.effort}</span>` : ''}</span>
+              <span class="day-date">${d.date} <span class="day-waves">${d.waves}</span></span>
+            </div>
+            <div class="day-focus">Focus: ${d.focus}</div>
+            <div style="font-size:13px; margin: 6px 0;"><strong>Wins:</strong> ${d.wins}</div>
+            <div style="font-size:13px; margin: 6px 0;"><strong>Next focus:</strong> ${d.next}</div>
+            <div style="font-size:11px; letter-spacing:0.12em; text-transform:uppercase; font-weight:600; color: var(--navy-soft); margin-top:10px; margin-bottom:4px;">3-points</div>
+            <ol class="day-points">${d.points.map(p => `<li>${p}</li>`).join('')}</ol>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function switchTab(tabId, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.getElementById('pane-' + tabId).classList.add('active');
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+
+</body>
+</html>
