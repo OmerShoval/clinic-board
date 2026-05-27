@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(vercel --version)",
+      "Bash(npm i *)",
+      "Bash(vercel whoami *)",
+      "Bash(vercel --prod --yes)",
+      "Bash(vercel --prod --yes --name clinic-board)",
+      "Bash(gh auth *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(gh repo *)",
+      "Bash(git push *)"
+    ]
+  }
+}
