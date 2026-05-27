@@ -217,6 +217,7 @@
   /* Roadmap with status */
   .roadmap-item { background: var(--white); padding: 14px 18px; border-radius: 10px; margin-bottom: 10px; border-left: 4px solid var(--accent, var(--teal)); box-shadow: var(--shadow-sm); position: relative; }
   .roadmap-item.new-d2 { border-left-style: dashed; background: linear-gradient(135deg, var(--white) 0%, #fef9ed 100%); }
+  .roadmap-item.new-d3 { border-left-style: dotted; background: linear-gradient(135deg, var(--white) 0%, #edf7f0 100%); }
   .roadmap-item h4 { margin-top: 0; color: var(--accent, var(--teal)); display: flex; justify-content: space-between; align-items: center; gap: 8px; }
   .roadmap-item .status { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px; border-radius: 6px; font-weight: 700; }
   .status-improved { background: var(--ok-bg); color: var(--ok); }
@@ -308,7 +309,7 @@
   <div class="header-inner">
     <div class="header-top">
       <div>
-        <div class="brand-eyebrow">Coaching Board · Day 2</div>
+        <div class="brand-eyebrow">Coaching Board · Day 3</div>
         <h1 class="brand-title">Clinic Season Opener</h1>
         <div class="brand-meta">
           <span>Coach: Omer</span>
@@ -317,14 +318,14 @@
           <span class="dot"></span>
           <span>5 students</span>
           <span class="dot"></span>
-          <span>Day 2 waves: 2–3 ft</span>
+          <span>Day 3 waves: 2–3 ft (messy)</span>
         </div>
       </div>
       <div class="header-stats">
         <div class="stat-pill"><span class="num">5</span><span class="lbl">Surfers</span></div>
-        <div class="stat-pill"><span class="num">5</span><span class="lbl">Day 2 ✓</span></div>
+        <div class="stat-pill"><span class="num">4</span><span class="lbl">Day 3 ✓</span></div>
+        <div class="stat-pill"><span class="num">1</span><span class="lbl">⚠ Back rest</span></div>
         <div class="stat-pill"><span class="num">4</span><span class="lbl">Intaked</span></div>
-        <div class="stat-pill"><span class="num">1</span><span class="lbl">⚠ Watch</span></div>
       </div>
     </div>
   </div>
@@ -333,46 +334,46 @@
 <main>
   <!-- ALERTS -->
   <div class="alerts">
-    <div class="alert">
-      <div class="alert-icon">!</div>
+    <div class="alert ok">
+      <div class="alert-icon">✓</div>
       <div class="alert-body">
-        <strong>Roee — Injury trajectory wrong direction</strong>
-        <span>Day 1: 7/10 effort. Day 2 session 2: <strong>8/10 ⚠⚠</strong>. He's debating skipping evening session. New tactic deployed today: "two attacks per wave" + foam roller. Direct conversation needed tomorrow before water.</span>
+        <strong>Roee — Effort improved Day 3 ✓</strong>
+        <span>Day 3: effort felt good, less tired than previous days. 24 waves in session 1. The "two attacks" tactic is working. Monitor and hold the line — don't let him revert.</span>
       </div>
     </div>
-    <div class="alert info">
-      <div class="alert-icon">i</div>
+    <div class="alert warn">
+      <div class="alert-icon">!</div>
       <div class="alert-body">
-        <strong>Michal — Pre-clinic personal call still to book</strong>
-        <span>Day-of-water conversations are filling in the picture (inspiration figure, calmness, awareness), but the proper intake (goals, fears, lifestyle, sales) is still outstanding.</span>
+        <strong>Koby — Back injury, missed Day 3</strong>
+        <span>Both sessions missed. Check in before Day 4 — confirm he's cleared to surf. Maintain morale; review what's coming when he's back.</span>
       </div>
     </div>
   </div>
 
-  <!-- Day 2 highlights ribbon -->
+  <!-- Day 3 highlights ribbon -->
   <div class="day-highlights">
-    <h2>Day 2 highlights — what moved</h2>
+    <h2>Day 3 highlights — what moved</h2>
     <p class="sub">A snapshot of the biggest shifts across the cohort in 24 hours.</p>
     <div class="highlight-row">
       <div class="highlight-item" style="--accent: var(--jonathan);">
         <div class="name">Jonathan</div>
-        <div class="what">Pop-up release on first wave today. Held the middle band. New work: hold the lean LONGER + ignore the mental clock.</div>
+        <div class="what">Long lean + checking beyond foam = perfect. Hand is blocking movement — correct opening will unlock the next layer. Board upgrade confirmed: 6'10, 40-42L.</div>
       </div>
       <div class="highlight-item" style="--accent: var(--tali);">
         <div class="name">Tali</div>
-        <div class="what">Foot sequencing locked. Cutback length growing. Foam-fear surfaced — exits the rotation early. Foam-commit is the next unlock.</div>
+        <div class="what">Tough conditions (flat, double-ups). Mental state work for backside. New: feet to the SIDE before turns, not centered. Shoulder opens the way — legs do the work.</div>
       </div>
       <div class="highlight-item" style="--accent: var(--roee);">
-        <div class="name">Roee ⚠</div>
-        <div class="what">Cutback timing locked; Step 1 graduated. But effort 8/10 — body says no. "Two attacks" + foam roller deployed.</div>
+        <div class="name">Roee ✓</div>
+        <div class="what">Effort felt good — less tired than previous days. 24 waves S1. Hand ahead of body is the main blocker now. Back foot needs to land on astrodek.</div>
       </div>
       <div class="highlight-item" style="--accent: var(--michal);">
         <div class="name">Michal</div>
-        <div class="what">Cleanest jump in the cohort. Wider awareness, calmness, linked turns. Now: back-foot lift + learn to lift the nose.</div>
+        <div class="what">Spatial awareness as the focus. "Looking a few meters right" transformed planning. Tough conditions forced real-time reading. 12 waves S1.</div>
       </div>
       <div class="highlight-item" style="--accent: var(--koby);">
-        <div class="name">Koby</div>
-        <div class="what">Used the pop-up workaround → more waves. Discovered "gentle &gt; force" on his own. Phase 2 (use the speed) now open.</div>
+        <div class="name">Koby ⚠</div>
+        <div class="what">Back injury — missed both sessions. Hold morale. Check clearance before Day 4.</div>
       </div>
     </div>
   </div>
@@ -396,39 +397,39 @@
   <div class="themes-section">
     <div class="section-head">
       <h2>Group Themes — patterns across the cohort</h2>
-      <span class="hint">What's emerging in Day 2</span>
+      <span class="hint">What's emerging in Day 3</span>
     </div>
     <div class="themes-grid">
       <div class="theme-card" style="border-top-color: var(--teal);">
-        <h4>Compression → Extension</h4>
-        <p>Still central. Tali's lean is growing; Koby discovered gentle &gt; force; Roee says he didn't feel the need today (gap). Reintroduce explicitly.</p>
+        <h4>Hands blocking movement</h4>
+        <p>Jonathan: hand blocks rotation. Roee: hand races ahead of body. Tali: blocking hand kills shoulder flow. One theme, three surfers. Shared drill tomorrow?</p>
       </div>
       <div class="theme-card" style="border-top-color: var(--jonathan);">
-        <h4>Foot-positioning is unlocking</h4>
-        <p>Tali ✓, Michal ✓, Roee ✓. The "walk-back before the turn" rewire is landing across the cohort within 48 hours. Powerful.</p>
-      </div>
-      <div class="theme-card" style="border-top-color: var(--koby);">
-        <h4>"Gentle is the new attack"</h4>
-        <p>Koby discovered it; Jonathan needs it (rushing); Roee needs gradualness (shooting). Build a group warm-up around this idea.</p>
-      </div>
-      <div class="theme-card" style="border-top-color: var(--tali);">
-        <h4>Commitment to the foam</h4>
-        <p>Tali's the canonical case (exits early, fears foam). Koby is the counter-example (stuck close, said "easier when I'm near it"). Pair them in a debrief?</p>
+        <h4>"Gentle up, strong down"</h4>
+        <p>Jonathan's Day 3 mantra crystallised. Roee's gradualness, Tali's absorb-then-push — all variations of the same idea. The cohort is circling this concept from different angles.</p>
       </div>
       <div class="theme-card" style="border-top-color: var(--michal);">
-        <h4>Wider awareness</h4>
-        <p>Michal's biggest gain. Jonathan's biggest miss (watching the clock and the longboarders). Worth a pre-paddle ritual for both.</p>
+        <h4>Spatial awareness is unlocking</h4>
+        <p>Michal: looking right transformed the session. Jonathan: gaze intention growing. Tali: glance down to confirm foot position. Pre-paddle awareness ritual for the group.</p>
       </div>
       <div class="theme-card" style="border-top-color: var(--roee);">
-        <h4>⚠ Body management</h4>
-        <p>Roee is the obvious case but the pattern matters for everyone — fewer waves chased, more rest cycles, mandatory stretching. Set an expectation at dinner.</p>
+        <h4>Back foot on the astrodek</h4>
+        <p>Roee: still landing on wax. Michal: earlier unlock. Tali: foot-walk rewired ✓. This physical anchor is the shared upgrade for Roee now. Can feel wax vs foam distinctly.</p>
+      </div>
+      <div class="theme-card" style="border-top-color: var(--tali);">
+        <h4>Patience in tough conditions</h4>
+        <p>Day 3 was messy (flat, double-ups). Tali and Michal both had to search 15-20 min for a good wave. One good wave breaks the frustration loop — teach the wait.</p>
+      </div>
+      <div class="theme-card" style="border-top-color: var(--koby);">
+        <h4>Koby's recovery window</h4>
+        <p>Back injury = rest. Use this time: video review, shore observation, mental rehearsal. When he returns, the gap could be an advantage — fresher body, clearer mind.</p>
       </div>
     </div>
   </div>
 
   <!-- FOOTER -->
   <div class="footer-actions">
-    <p>Updated by Coach Omer after Day 2. Each card shows current focus (Day 2). Open the modal for full status-tracked roadmap, Day 1 + Day 2 wave analyses, and the day log. To share, hit Print → Save as PDF.</p>
+    <p>Updated by Coach Omer after Day 3. Each card shows current focus (Day 3). Open the modal for full status-tracked roadmap, Day 1–3 wave analyses, and the day log. To share, hit Print → Save as PDF.</p>
     <div class="actions">
       <button class="btn ghost" onclick="window.print()">Print / PDF</button>
       <button class="btn" onclick="document.getElementById('board').scrollIntoView({behavior:'smooth'})">Back to Board ↑</button>
@@ -461,17 +462,17 @@ const students = [
       {day: 3, session: 1, count: 11},
       {day: 3, session: 2, count: 5}
     ],
-    badges: [{text: 'Intake ✓', cls: 'ok'}, {text: 'Day 2 ✓', cls: 'ok'}, {text: '↑ Improving', cls: 'improving'}],
-    approach: '<strong>Mental release, not strength.</strong> Day 2 shift: pop-up release landed. Watch the mental clock — he gets pulled out of his own water.',
+    badges: [{text: 'Intake ✓', cls: 'ok'}, {text: 'Day 3 ✓', cls: 'ok'}, {text: '↑ Improving', cls: 'improving'}],
+    approach: '<strong>Gentle up. Strong down.</strong> Day 3: long lean + checking beyond foam = perfect. Hand is blocking movement. Board upgrade confirmed (6\'10, 40-42L).',
     currentPriorities: [
-      'Hold the lean LONGER — sleep in the rotation, don\'t rush',
-      'Intention with the gaze — eyes go where the body should go',
-      'Ignore the longboarders — your wave is yours'
+      'Gentle ascent → strong power back DOWN at the turning point',
+      'Open the hand — it\'s blocking the rotation',
+      'Cutback lean → open to the other side (Rail to Rail, look left)'
     ],
     threePoints: [
-      'Hold the lean LONGER (don\'t rush the rotation)',
-      'Eyes go where the body should go (intention with gaze)',
-      'Stop watching the clock — your wave is coming'
+      'Gentle up. Strong down.',
+      'Open the hand — it\'s blocking you',
+      'From cutback lean: look left, left hand, pressure to heels'
     ],
     personal: {
       title: 'Pre-clinic personal talk',
@@ -489,6 +490,13 @@ const students = [
         '<strong>Reframe given:</strong> longboarders take the big outside waves; the best shortboard rides hug the corner with the most wall.',
         '<strong>Shoulder:</strong> 2-hour sessions are his max. PT ongoing. Foam roller mentioned.',
         '<strong>Coach insight:</strong> the critical missing piece is sleeping LONGER in the lean — that creates flow for the next step, not another cutback.'
+      ],
+      day3: [
+        '<strong>Board talk confirmed:</strong> previous shortboard volume was too low. Bigger board (6\'10, 40-42L) = easier entry + less shoulder load.',
+        '<strong>Left shoulder very tight</strong> — foam roller not enough under effort. Needs massage + morning session only.',
+        '<strong>Session management:</strong> morning session only → rest at noon → 30-min massage. Don\'t overdo.',
+        '<strong>Less chaos in take-off</strong> — already surfing calmer. Don\'t look at other surfers. Your spot, your waves.',
+        '<strong>Key insight:</strong> the hand is blocking movement. The body knows where to go — the hand just needs to open and let it happen.'
       ]
     },
     approachFull: [
@@ -499,7 +507,9 @@ const students = [
       '<strong>Wave selection is the recurring weakness.</strong> First days: less maneuvers, more positioning.',
       '<strong>Shortboard volume unforgiving</strong> — calm paddling + exact positioning are non-negotiable.',
       '<strong>Reef break is his happy place.</strong>',
-      '<strong>NEW Day 2 — mental clock pressure.</strong> Build a pre-paddle ritual that puts him in his own water. Don\'t let comparison kill the focus.'
+      '<strong>NEW Day 2 — mental clock pressure.</strong> Build a pre-paddle ritual that puts him in his own water. Don\'t let comparison kill the focus.',
+      '<strong>NEW Day 3 — board upgrade.</strong> 6\'10 at 40-42L. Easier entry, less shoulder strain. The volume unlocks the technique.',
+      '<strong>NEW Day 3 — open the hand.</strong> Hand is blocking rotation. Correct hand opening creates flow. The body already knows where to go.'
     ],
     day1Analysis: {
       saw: [
@@ -524,24 +534,43 @@ const students = [
       working: ['Pop-up release.', 'Middle band held.', 'Footwork showing up.'],
       blocking: ['Lean too short — rushing the rotation.', 'No gaze intention.', 'Mental clock pressure.']
     },
+    day3Analysis: {
+      saw: [
+        '<strong>Second wave: perfect.</strong> Long lean, checked beyond the foam — that\'s the shape we\'ve been chasing.',
+        '<strong>Hand is blocking movement.</strong> The body knows where to go; the hand is getting in the way. Correct opening = natural flow unlock.',
+        '<strong>Next sequence to build:</strong> from cutback lean → straighten left → look left → left hand leads → transfer pressure to heels (Rail to Rail).',
+        '<strong>From bent position:</strong> return gaze left, use left hand, shift weight to heels. Energy releases back up to the wall.',
+        '<strong>Ascent always gentle</strong> — the turning point (at lip or end of long movement) is where strong power goes DOWN.',
+        '<strong>Board upgrade confirmed.</strong> Previous shortboard too low volume. 6\'10 at 40-42L = easier entry, less shoulder load.',
+        'Left shoulder very tight despite foam roller — massage + morning-only sessions recommended.'
+      ],
+      working: ['Long lean landing.', 'Checking beyond the foam.', 'Calmer take-off.'],
+      blocking: ['Hand blocking rotation.', 'Rail-to-Rail transition not yet wired.', 'Shoulder tightness limiting movement range.']
+    },
     roadmap: [
-      {p: 1, title: 'Wave selection / positioning first.', status: 'improving', statusLabel: 'Day 2: Improving', statusNote: 'Better reads, occasionally still over-committing.', body: '4m of wall in front = walk away. Want ~1m about to break next to him.'},
-      {p: 2, title: 'Come back via rotation, not crouch.', status: 'improving', statusLabel: 'Day 2: Improving', statusNote: 'Pressing back foot, but scraping instead of completing rotation; gaze + longer lean are the missing pieces.', body: 'Pressure + rotation on the back foot → back to the foam. Cue: "Power isn\'t down. Power is the spin back."'},
-      {p: 3, title: 'Pop-up: mental release work (backside).', status: 'improved', statusLabel: 'Day 2: Improved ✓', statusNote: 'Released hands on the first wave today.', body: 'Daily 10-pop-up land drill (last 3 eyes closed).'},
-      {p: 4, title: 'Stay in the middle band.', status: 'improved', statusLabel: 'Day 2: Improved ✓', statusNote: 'Held the middle on the successful wave.', body: 'Cue: "Below the top, above the bottom — small smooth arcs."'},
-      {p: 5, title: 'Carver between sessions.', status: 'working', statusLabel: 'Day 2: Not addressed', statusNote: 'Reintroduce.', body: 'Reinforces flow, especially backside.'},
-      {p: 6, title: 'Tightness work.', status: 'working', statusLabel: 'Day 2: Not addressed', statusNote: 'Foam-roller mentioned. Build into daily rhythm.', body: 'Daily mobility/stretching.'},
-      {p: 7, title: 'More wave time = more mastery.', status: 'working', statusLabel: 'Day 2: Struggling', statusNote: 'Mental clock pressure + watching other surfers.', body: 'Cue: "Boring is the goal right now."'},
-      {p: 8, title: 'Hold the lean LONGER.', status: 'new', statusLabel: 'NEW Day 2', body: 'The lean is a slow, soft, deliberate sit-down. Cue: "Sleep in the lean." This is the actual generator of the figure-8 flow.', newD2: true},
-      {p: 9, title: 'Intention with the gaze.', status: 'new', statusLabel: 'NEW Day 2', body: 'Eyes go where the rotation goes. Cue: "Look where you\'re spinning."', newD2: true},
-      {p: 10, title: 'The wall doesn\'t always need a hit.', status: 'new', statusLabel: 'NEW Day 2', body: 'When wave runs fast in front, stand tall and take the speed forward.', newD2: true},
-      {p: 11, title: 'Mental clock + comparison.', status: 'new', statusLabel: 'NEW Day 2', body: 'Stop watching the longboarders. Cue: "Whose session is this? Whose clock?"', newD2: true}
+      {p: 1, title: 'Wave selection / positioning first.', status: 'improving', statusLabel: 'Day 3: Improving', statusNote: 'Better reads consistently.', body: '4m of wall in front = walk away. Want ~1m about to break next to him.'},
+      {p: 2, title: 'Come back via rotation, not crouch.', status: 'improving', statusLabel: 'Day 3: Improving', statusNote: 'Long lean landed on wave 2. Rail-to-Rail transition is the next step.', body: 'Pressure + rotation on the back foot → back to the foam.'},
+      {p: 3, title: 'Pop-up: mental release work (backside).', status: 'mastered', statusLabel: 'Day 3: Holding ✓', statusNote: 'Calmer take-off, less chaos. Protect the gain.', body: 'Daily 10-pop-up land drill (last 3 eyes closed).'},
+      {p: 4, title: 'Stay in the middle band.', status: 'improved', statusLabel: 'Day 3: Consistent ✓', statusNote: 'Holding the middle reliably.', body: 'Cue: "Below the top, above the bottom — small smooth arcs."'},
+      {p: 5, title: 'Carver between sessions.', status: 'working', statusLabel: 'Day 3: Not addressed', statusNote: 'Reintroduce.', body: 'Reinforces flow, especially backside.'},
+      {p: 6, title: 'Tightness work.', status: 'working', statusLabel: 'Day 3: Ongoing', statusNote: 'Morning session + massage. Shoulder very tight under effort.', body: 'Daily mobility/stretching. Morning session only.'},
+      {p: 7, title: 'More wave time = more mastery.', status: 'improving', statusLabel: 'Day 3: Better', statusNote: 'Less watching other surfers. Staying in own water.', body: 'Cue: "Boring is the goal right now."'},
+      {p: 8, title: 'Hold the lean LONGER.', status: 'improved', statusLabel: 'Day 3: LANDED ✓', statusNote: 'Wave 2 was the proof. Long lean + check beyond foam = perfect.', body: 'The lean is a slow, soft, deliberate sit-down. Cue: "Sleep in the lean."', newD2: true},
+      {p: 9, title: 'Intention with the gaze.', status: 'improving', statusLabel: 'Day 3: Building', statusNote: 'Checking beyond foam showing up. Rail-to-Rail gaze next.', body: 'Eyes go where the rotation goes. Cue: "Look where you\'re spinning."', newD2: true},
+      {p: 10, title: 'The wall doesn\'t always need a hit.', status: 'working', statusLabel: 'Day 3: Not directly addressed', statusNote: '', body: 'When wave runs fast in front, stand tall and take the speed forward.', newD2: true},
+      {p: 11, title: 'Mental clock + comparison.', status: 'improved', statusLabel: 'Day 3: Better ✓', statusNote: 'Less chaos, less watching others. Board upgrade will help further.', body: 'Stop watching the longboarders. Cue: "Whose session is this? Whose clock?"', newD2: true},
+      {p: 12, title: 'Open the hand — it\'s blocking movement.', status: 'new', statusLabel: 'NEW Day 3', body: 'Body knows where to go. Hand is blocking it. Correct hand opening = natural flow. Cue: "Open the door."', newD3: true},
+      {p: 13, title: 'Rail to Rail: cutback lean → other side.', status: 'new', statusLabel: 'NEW Day 3', body: 'From bent/leaning: straighten left, look left, left hand leads, weight to heels. Releases energy back to the wall.', newD3: true},
+      {p: 14, title: 'Gentle up. Strong down.', status: 'new', statusLabel: 'NEW Day 3', body: 'Ascent = always gentle. Turning point (at lip or end of movement) = apply strong power DOWN. This is the rhythm.', newD3: true},
+      {p: 15, title: 'Board upgrade: 6\'10 at 40-42L.', status: 'new', statusLabel: 'NEW Day 3', body: 'Previous shortboard too low volume. Bigger board = easier entry + less shoulder load + more margin to focus on technique.', newD3: true}
     ],
     dayLog: [
       {day: 1, date: '2026-05-25', waves: '1–2 ft', focus: 'Wave reading + flow analysis', wins: 'Soft beautiful turns, long wave time', next: 'Rotate back (not crouch); softer entries; backside pop-up',
        points: ['Power isn\'t down, it\'s behind (rotation back)', 'Take the friendly entry', 'Small smooth arcs in the middle band']},
       {day: 2, date: '2026-05-26', waves: '2–3 ft', focus: 'Hold the lean; pop-up release; mental clock work', wins: 'Pop-up release; held middle band; better footwork', next: 'Longer lean; gaze intention; ignore the longboarders',
-       points: ['Hold the lean LONGER (don\'t rush)', 'Eyes go where the body should go', 'Stop watching the clock — your wave is coming']}
+       points: ['Hold the lean LONGER (don\'t rush)', 'Eyes go where the body should go', 'Stop watching the clock — your wave is coming']},
+      {day: 3, date: '2026-05-27', waves: '2–3 ft (messy)', focus: 'Gentle up / strong down; hand opening; Rail to Rail', wins: 'Wave 2: long lean + checked beyond foam = perfect', next: 'Open the hand; Rail-to-Rail; board upgrade',
+       points: ['Gentle up. Strong down.', 'Open the hand — it\'s blocking you', 'From cutback lean: look left, left hand, pressure to heels']}
     ]
   },
   {
@@ -558,17 +587,17 @@ const students = [
       {day: 3, session: 1, count: 9},
       {day: 3, session: 2, count: 7}
     ],
-    badges: [{text: 'Intake ✓', cls: 'ok'}, {text: 'Day 2 ✓', cls: 'ok'}, {text: '↑ Improving', cls: 'improving'}],
-    approach: '<strong>Foot sequencing landed.</strong> Now: foam-trust. She exits the cutback early because she\'s afraid of the whitewater. Naming the fear is the work.',
+    badges: [{text: 'Intake ✓', cls: 'ok'}, {text: 'Day 3 ✓', cls: 'ok'}, {text: '↑ Improving', cls: 'improving'}],
+    approach: '<strong>Feet to the side, absorb, then push.</strong> Day 3: backside mental state work + tough conditions. New unlock: feet move SIDEWAYS before turns (not just back/forward).',
     currentPriorities: [
-      'Commit to the foam — go ALL the way, don\'t exit early',
-      'Sharpen the turn — opens the shoulder, unlocks frontside cutbacks',
-      'Rhythm: 3 short turns, then LONG — always close with the long one'
+      'Move feet to the SIDE toward the turn — left turn = left of left hip',
+      'Land with half-bend (absorb energy), THEN push hard sideways',
+      'Shoulder opens the way — but the actual power comes from the legs'
     ],
     threePoints: [
-      'Commit to the foam — go ALL the way',
-      'Sharpen the turn — opens the shoulder',
-      'Rhythm: 3 shorts, then LONG'
+      'Feet to the side — not just forward/back',
+      'Absorb first, then push hard',
+      'Shoulder clears the road. Legs drive the car.'
     ],
     personal: {
       title: 'Pre-clinic personal talk',
@@ -584,6 +613,15 @@ const students = [
         '<strong>⚠ Day 2 personal-talk file is in an unmounted folder.</strong>',
         'Path: <code>/Volumes/Clinics/Clinics/Angola 26/Clinic 1/Analysis/Tali Analysis/Tali d2 .txt</code>',
         'Paste the contents in chat, or move it into the connected folder, and I\'ll fill this in.'
+      ],
+      day3: [
+        '<strong>Backside = different mental state.</strong> "Funny/Different Story" — surfing is almost always fun, but backside requires a specific mindset shift.',
+        '<strong>Goal for the session:</strong> flowing surfing (cruising) and beginning cross-stepping on the wave.',
+        '<strong>Board weight tip:</strong> reduce board weight for easier control and quicker response.',
+        '<strong>Zone work:</strong> can\'t force the "zone." Take a moment — sometimes meditation, or a few fun waves first — before switching to technical focus.',
+        '<strong>Conditions were flat + double-ups.</strong> The mental loop of searching and not finding is real. One good wave breaks the frustration. Teach the patience.',
+        '<strong>Quick glance before moving feet:</strong> before shifting feet sideways, a quick look down confirms position — then push. Looks controlled, not impulsive.',
+        '<strong>Performance vs feeling:</strong> sometimes what feels less good in water looks excellent from outside. Trust the process.'
       ]
     },
     approachFull: [
@@ -593,7 +631,10 @@ const students = [
       '<strong>Push her sometimes.</strong> "Hello, GO!" when holding back.',
       '<strong>Two boards in play.</strong> Choose by teaching goal.',
       '<strong>"Scared + succeeding" is her sweet spot.</strong> Move her inside gradually.',
-      '<strong>NEW Day 2 — Foam-trust is the unlock.</strong> She exits cutback rotations early because she\'s afraid of the whitewater. Story-tell, name the fear, expect a few falls during the transition.'
+      '<strong>NEW Day 2 — Foam-trust is the unlock.</strong> She exits cutback rotations early because she\'s afraid of the whitewater. Story-tell, name the fear, expect a few falls during the transition.',
+      '<strong>NEW Day 3 — Feet to the side.</strong> Not just forward/back — move them SIDEWAYS toward the turn before pushing. Left turn = left of left hip.',
+      '<strong>NEW Day 3 — Absorb, then push.</strong> Land with half-bend (absorb energy), THEN push hard sideways. The difference between a float and a snap.',
+      '<strong>NEW Day 3 — Shoulder clears the road, legs drive.</strong> Left shoulder opens and rotates to show the way — but the rotation power is 100% from the legs. Without leg pressure, shoulder does nothing.'
     ],
     day1Analysis: {
       saw: [
@@ -619,22 +660,42 @@ const students = [
       working: ['Motion is happening.', 'Not flinching from speed.', 'Big morning-to-evening shift.'],
       blocking: ['Foam-fear — exits rotation early.', 'Rhythm uniform — no long closer.', 'Half-cutback feels safe — that\'s the trap.']
     },
+    day3Analysis: {
+      saw: [
+        '<strong>Tough session — flat conditions, double-ups.</strong> The mental challenge was real: searching 15-20 minutes for a suitable wave creates a frustration loop.',
+        '<strong>One good wave breaks the cycle.</strong> Patience is a teachable skill — and she\'s learning it.',
+        '<strong>Foot movement along the wave:</strong> left, right, left again — this creates the flow rhythm she\'s been after.',
+        '<strong>Key new unlock: feet move SIDEWAYS.</strong> Before turns, instead of feet centered, move them to the side toward the turn (left turn = feet left of left hip). Only then can effective pressure be generated.',
+        '<strong>Quick glance down:</strong> before shifting feet, a fast look confirms position — then push. This is intentional, controlled movement.',
+        '<strong>Land + push sequence:</strong> land with half-bend (absorb energy) → THEN push hard sideways. Generates a powerful, snappy turn.',
+        '<strong>Shoulder work:</strong> left shoulder opens and rotates to "show the way" — but shoulder movement requires leg support. All the actual power comes from the legs.',
+        '<strong>Cross-step:</strong> must be done fast, with strong foot return while pressing inward for rotation.',
+        '<strong>Blocking the hand</strong> prevents smooth movement and puts all load on the shoulder.'
+      ],
+      working: ['Patience in tough conditions.', 'Cross-step intention.', 'Foot movement rhythm along the wave.'],
+      blocking: ['Flat conditions challenged confidence.', 'Feet still defaulting to centered position.', 'Shoulder-leg timing not yet synced.']
+    },
     roadmap: [
-      {p: 1, title: 'Compress like a spring, then extend.', status: 'improving', statusLabel: 'Day 2: Improving', statusNote: 'Lean time growing visibly, extension still inconsistent.', body: 'Cue: "Knees bend at the bottom → push the chest up at the top."'},
-      {p: 2, title: 'Hand stays connected to the hip on back-side.', status: 'working', statusLabel: 'Day 2: Holding', statusNote: 'Not surfaced as a problem today.', body: 'Cue: "Imaginary line down your hip — back hand never crosses it."'},
-      {p: 3, title: 'Feet move BEFORE the turn, not during.', status: 'improved', statusLabel: 'Day 2: MAJOR ✓✓', statusNote: 'Sequencing landed. "Foot forward for speed, foot back for turn" visible across multiple waves.', body: 'Sequence: back foot → front foot → THEN turn.'},
-      {p: 4, title: 'Bring intention to the intuitive.', status: 'improving', statusLabel: 'Day 2: Mixed', statusNote: 'She\'s intuitively close to the foam but doesn\'t trust it.', body: 'Build conscious checkpoints.'},
-      {p: 5, title: 'Cross-step drill on the CJ.', status: 'working', statusLabel: 'Day 2: Not addressed', statusNote: '', body: 'Frame as a 1–2 year body-rewiring project.'},
-      {p: 6, title: 'Inside-section confidence.', status: 'working', statusLabel: 'Day 2: Not addressed', statusNote: '', body: 'Gradually move her closer to inside.'},
-      {p: 7, title: 'Commit to the foam.', status: 'new', statusLabel: 'NEW Day 2', body: 'Exits cutback early — foam is a PARTNER, another energy source. Expect a few falls during transition. Cue: "Let the foam caress you, then straighten up."', newD2: true},
-      {p: 8, title: 'Sharpen the turn.', status: 'new', statusLabel: 'NEW Day 2', body: 'Sharper toe-side now opens the shoulder. Then frontside cutbacks open.', newD2: true},
-      {p: 9, title: 'Rhythm: 3 shorts + 1 LONG.', status: 'new', statusLabel: 'NEW Day 2', body: 'Always close with the long turn. Visual: Tzachi\'s surfing — alegance.', newD2: true}
+      {p: 1, title: 'Compress like a spring, then extend.', status: 'improving', statusLabel: 'Day 3: Improving', statusNote: 'Lean time growing. Extension more consistent.', body: 'Cue: "Knees bend at the bottom → push the chest up at the top."'},
+      {p: 2, title: 'Hand stays connected to the hip on back-side.', status: 'improving', statusLabel: 'Day 3: Working', statusNote: 'Not the main blocker today. Leg/shoulder coordination is the bigger theme.', body: 'Cue: "Imaginary line down your hip — back hand never crosses it."'},
+      {p: 3, title: 'Feet move BEFORE the turn, not during.', status: 'mastered', statusLabel: 'Day 3: Mastered ✓✓', statusNote: 'Sequencing locked. Now adding sideways movement.', body: 'Sequence: back foot → front foot → sideways → THEN turn.'},
+      {p: 4, title: 'Bring intention to the intuitive.', status: 'improving', statusLabel: 'Day 3: Growing', statusNote: 'Glance-down before foot shift = intentional. Building this habit.', body: 'Build conscious checkpoints.'},
+      {p: 5, title: 'Cross-step drill on the CJ.', status: 'improving', statusLabel: 'Day 3: Introduced', statusNote: 'Session goal included cross-stepping. Must be done fast with strong return.', body: 'Frame as a 1–2 year body-rewiring project.'},
+      {p: 6, title: 'Inside-section confidence.', status: 'working', statusLabel: 'Day 3: Not addressed', statusNote: '', body: 'Gradually move her closer to inside.'},
+      {p: 7, title: 'Commit to the foam.', status: 'improving', statusLabel: 'Day 3: In progress', statusNote: 'Foam-fear being addressed mentally. Hard conditions made it harder to test.', body: 'Exits cutback early — foam is a PARTNER. Cue: "Let the foam caress you, then straighten up."', newD2: true},
+      {p: 8, title: 'Sharpen the turn.', status: 'improving', statusLabel: 'Day 3: Building', statusNote: 'Absorb-then-push is the new layer.', body: 'Sharper toe-side now opens the shoulder. Then frontside cutbacks open.', newD2: true},
+      {p: 9, title: 'Rhythm: 3 shorts + 1 LONG.', status: 'working', statusLabel: 'Day 3: Working', statusNote: 'Flat conditions didn\'t offer the right canvas. Revisit on a better day.', body: 'Always close with the long turn. Visual: Tzachi\'s surfing — elegance.', newD2: true},
+      {p: 10, title: 'Feet SIDEWAYS before turns.', status: 'new', statusLabel: 'NEW Day 3', body: 'Not just forward/back — move feet to the side toward the turn. Left turn = feet left of left hip. Only then can effective pressure land. Quick glance down to confirm, then push.', newD3: true},
+      {p: 11, title: 'Land soft, then push hard.', status: 'new', statusLabel: 'NEW Day 3', body: 'Absorb the landing with half-bend, THEN push hard sideways. The absorption creates the stored energy for the snap.', newD3: true},
+      {p: 12, title: 'Shoulder opens the road. Legs drive.', status: 'new', statusLabel: 'NEW Day 3', body: 'Left shoulder rotates to show the way — but rotation power is 100% legs. Without leg pressure, shoulder does nothing. Cue: "Shoulder opens. Legs go."', newD3: true}
     ],
     dayLog: [
       {day: 1, date: '2026-05-25', waves: '1–2 ft', focus: 'Wave reading + flow analysis', wins: 'Beautiful wave choice, soft flow', next: 'Compression→extension; hand at hip',
        points: ['Down-and-up like a spring', 'Back hand stays at the hip', 'Move feet before turning back']},
       {day: 2, date: '2026-05-26', waves: '2–3 ft', focus: 'Foot sequencing locked, cutback length growing', wins: 'Foot-walk visible, lean time up, big style shift', next: 'Commit to foam; sharpen the turn; rhythm',
-       points: ['Commit to the foam — go ALL the way', 'Sharpen the turn — opens the shoulder', 'Rhythm: 3 shorts, then LONG']}
+       points: ['Commit to the foam — go ALL the way', 'Sharpen the turn — opens the shoulder', 'Rhythm: 3 shorts, then LONG']},
+      {day: 3, date: '2026-05-27', waves: '2–3 ft (flat, double-ups)', focus: 'Backside mental state; feet sideways; shoulder/leg coordination', wins: 'Patience in tough conditions; cross-step intention; foot movement rhythm', next: 'Feet sideways; absorb-then-push; shoulder opens, legs drive',
+       points: ['Feet to the side — not just forward/back', 'Absorb first, then push hard', 'Shoulder clears the road. Legs drive the car.']}
     ]
   },
   {
@@ -651,17 +712,17 @@ const students = [
       {day: 3, session: 1, count: 11},
       {day: 3, session: 2, count: 7}
     ],
-    badges: [{text: '⚠ 8/10 effort', cls: 'warn'}, {text: 'Day 2 ✓', cls: 'ok'}, {text: '↑ Cutback locked', cls: 'improving'}],
-    approach: '<strong>⚠ Injury trajectory wrong direction.</strong> Day 1: 7/10. Day 2: 8/10. Foam roller deployed, "two attacks per wave" tactic given. Have the direct conversation tomorrow.',
+    badges: [{text: '✓ Effort improved', cls: 'ok'}, {text: 'Day 3 ✓', cls: 'ok'}, {text: '↑ Gradualness building', cls: 'improving'}],
+    approach: '<strong>Effort felt good — less tired Day 3 ✓.</strong> 24 waves session 1. The main technical blocker now: hand races ahead of the body. Back foot needs to feel the astrodek.',
     currentPriorities: [
-      '⚠ Two attacks per wave: catch, SIT. Catch, SIT. Foam roller before sleep.',
-      'Gradualness — wait, don\'t shoot. Hand opening + leg pressure sync.',
-      'Heel-side: rotate FIRST, then press forward (don\'t dump on front leg).'
+      'STOP the hand when it reaches the knee — bend knees more, press from feet',
+      'Back foot lifts to astrodek — feel the foam, not the wax',
+      'Read the wall before the cutback — steep wall vs flat wall = different intensity'
     ],
     threePoints: [
-      '⚠ Two attacks: catch, SIT. Catch, SIT. Foam roller.',
-      'Gradualness — wait, don\'t shoot. Hand + leg sync.',
-      'Heel-side: rotate FIRST, then press forward.'
+      'Stop the hand. Bend the knees. Press.',
+      'Back foot on the astrodek (feel the foam)',
+      'Read the wall — steep or flat? Then decide intensity.'
     ],
     personal: {
       title: 'Pre-clinic personal talk',
@@ -681,6 +742,16 @@ const students = [
         '<strong>He\'s contradicting himself:</strong> wants to lower load but won\'t sit longer. Called out directly.',
         '<strong>Coach prescription:</strong> "Two attacks per wave" (catch + sit, sit + wait). Foam roller given for self-massage before sleep, against the wall.',
         '<strong>Day 1 cue still not lived:</strong> chest-rising extension — he says "didn\'t feel the need" today. Reintroduce.'
+      ],
+      day3: [
+        '<strong>Effort felt GOOD ✓</strong> — less tired than previous days. Physical fatigue was present but well-managed. Shoulder felt better with the bigger board.',
+        '<strong>24 waves in session 1</strong> — great quantity with quality. Some missed due to being at a "fat peak."',
+        '<strong>Beautiful flow from side to side</strong> on a key wave. The cutback is connecting.',
+        '<strong>The technical problem now:</strong> hand going ahead of the body. When it passes the front knee at ~90°, the legs lose stability and action ability.',
+        '<strong>Fix:</strong> stop the hand when it reaches the knee → bend knees MORE → press from the correct foot position.',
+        '<strong>Back foot still landing on wax.</strong> Needs to consciously lift and place on the astrodek (foam grip). He can feel the physical difference.',
+        '<strong>Return front foot ONLY after completing the full rotation.</strong> Straight gliding = front foot forward; sharp attack = back foot back.',
+        '<strong>Session management holding:</strong> return to lineup at a walk, not a rush. Choose waves, don\'t scramble.'
       ]
     },
     approachFull: [
@@ -692,7 +763,9 @@ const students = [
       '<strong>One cue per wave.</strong>',
       '<strong>Always explain the WHY.</strong>',
       '<strong>NEW Day 2 — Gradualness, not shooting.</strong> Slamming the shoulder open all at once. The fix: hand opening AND leg pressure ramp TOGETHER.',
-      '<strong>NEW Day 2 — Don\'t chase off-the-lip yet.</strong> 4-stage progression: foot back ✓ → cutback length [now] → energy connection → off-the-lip (stage 4).'
+      '<strong>NEW Day 2 — Don\'t chase off-the-lip yet.</strong> 4-stage progression: foot back ✓ → cutback length [now] → energy connection → off-the-lip (stage 4).',
+      '<strong>NEW Day 3 — Stop the hand at the knee.</strong> When hand passes front knee, legs lose power. Stop it, bend more, press. Gradualness from the legs, not the arms.',
+      '<strong>NEW Day 3 — Astrodek awareness.</strong> Back foot landing on wax = wrong position. Lift consciously, feel the foam. This anchors the entire rotation.'
     ],
     day1Analysis: {
       saw: [
@@ -718,22 +791,42 @@ const students = [
       working: ['Cutback connecting.', 'Back-foot position improved.', 'Reading the wave well.'],
       blocking: ['Shooting (not gradual).', 'Heel-side rotation stuck.', 'Wants to skip ahead.', 'Ego on session volume.']
     },
+    day3Analysis: {
+      saw: [
+        '<strong>Effort IMPROVED ✓</strong> — felt good, less tired than previous days. 24 waves in session 1. Big positive shift.',
+        '<strong>Beautiful wave:</strong> many opportunities to go up and down, clean flow from side to side. The cutback is connecting.',
+        '<strong>Current blocker: hand ahead of body.</strong> Missing gradualness — hand does too much, lower body not enough.',
+        '<strong>Critical threshold:</strong> when hand passes front knee (~90°), legs lose stability. The fix: STOP the hand, bend knees MORE, press from correct foot position.',
+        '<strong>Back foot placement:</strong> still landing on wax, not astrodek. Needs conscious lift + placement on the foam grip. The physical difference (wax vs foam) is a learnable anchor.',
+        '<strong>Front foot return:</strong> bring it forward ONLY after completing the full rotation. Straight glide = front foot; sharp attack = back foot. Sequence matters.',
+        '<strong>Strong bottom turn performed</strong> — weight from legs, correct chest/knee lean. After turn: stuck due to excess energy. Rotation needed more bend + "kontra."',
+        '<strong>Some cutbacks in wrong place or wrong intensity.</strong> Read the wall first: steep wall ≠ flat wall. Intensity matches the read.',
+        'Some waves missed at a "fat peak" — positioning refinement.'
+      ],
+      working: ['Effort managed well — less tired.', 'Beautiful flow on key wave.', 'Strong bottom turn.', 'Cutback connection continuing.'],
+      blocking: ['Hand ahead of body.', 'Back foot on wax not astrodek.', 'Cutback timing and intensity still rough.']
+    },
     roadmap: [
-      {p: 0, title: '⚠ Injury management.', status: 'deteriorating', statusLabel: 'Day 2: DETERIORATING ⚠⚠', statusNote: '8/10 yesterday. Foam roller deployed. Conversation went deeper.', body: 'Two attacks per wave OR shorter sessions. Foam roller before sleep. Mandatory stretching.'},
-      {p: 1, title: 'Decision-making on a flat wall.', status: 'improved', statusLabel: 'Day 2: MAJOR ✓', statusNote: 'Cutback at the right moment, visible on tape.', body: 'Cue: "When it dies, go get it back."'},
-      {p: 2, title: 'Walk the feet BACK before the turn.', status: 'mastered', statusLabel: 'Day 2: GRADUATED ✓✓', statusNote: '"Step 1 done." Foot positioning improved.', body: 'Cue: "Tap-tap fast, then turn."'},
-      {p: 3, title: 'Release energy UP through extension.', status: 'working', statusLabel: 'Day 2: Still working', statusNote: 'He says "didn\'t feel the need." The cue isn\'t lived yet.', body: 'Reintroduce one wave at a time.'},
-      {p: 4, title: 'Try a longboard / glider for cutback practice.', status: 'working', statusLabel: 'Day 2: Not addressed', statusNote: '', body: 'Time + forgiveness to feel the cutback rhythm.'},
-      {p: 5, title: 'Lean in HARD on the double-ups.', status: 'working', statusLabel: 'Day 2: Not addressed', statusNote: '', body: 'Best walls on offer.'},
-      {p: 6, title: 'Gradualness, not shooting.', status: 'new', statusLabel: 'NEW Day 2', body: 'Hand opening + leg pressure ramp TOGETHER, synchronized. Slight hand = slight leg. More hand = more leg. Cue: "Don\'t shoot. Build it."', newD2: true},
-      {p: 7, title: 'Heel-side: rotate FIRST, then press.', status: 'new', statusLabel: 'NEW Day 2', body: 'Front leg takes over and jams everything. Sequence: compress → straighten → maintain back-foot pressure → rotate board DOWN → THEN press forward.', newD2: true},
-      {p: 8, title: 'Don\'t chase off-the-lip yet.', status: 'new', statusLabel: 'NEW Day 2', body: '4-stage progression: foot back ✓ → cutback length [now] → energy connection → off-the-lip (stage 4, not now).', newD2: true}
+      {p: 0, title: '⚠ Injury management.', status: 'improved', statusLabel: 'Day 3: IMPROVED ✓', statusNote: 'Effort felt good, less tired. 24 waves without overload. Two-attacks tactic working.', body: 'Maintain: return at a walk, sit between sets, foam roller. Don\'t let him slip back.'},
+      {p: 1, title: 'Decision-making on a flat wall.', status: 'mastered', statusLabel: 'Day 3: Solid ✓✓', statusNote: 'Cutback connecting consistently. Reading the wall before committing.', body: 'Cue: "When it dies, go get it back."'},
+      {p: 2, title: 'Walk the feet BACK before the turn.', status: 'mastered', statusLabel: 'Day 3: Mastered ✓✓', statusNote: 'Graduated and holding.', body: 'Cue: "Tap-tap fast, then turn."'},
+      {p: 3, title: 'Release energy UP through extension.', status: 'working', statusLabel: 'Day 3: Still working', statusNote: 'Beautiful bottom turn. Post-turn energy still trapped sometimes.', body: 'Reintroduce one wave at a time.'},
+      {p: 4, title: 'Try a longboard / glider for cutback practice.', status: 'working', statusLabel: 'Day 3: Not addressed', statusNote: '', body: 'Time + forgiveness to feel the cutback rhythm.'},
+      {p: 5, title: 'Lean in HARD on the double-ups.', status: 'working', statusLabel: 'Day 3: Not addressed', statusNote: '', body: 'Best walls on offer.'},
+      {p: 6, title: 'Gradualness, not shooting.', status: 'improving', statusLabel: 'Day 3: Building', statusNote: 'Hand still ahead, but awareness is there. Stop-and-bend drill needed.', body: 'Hand opening + leg pressure ramp TOGETHER. Cue: "Don\'t shoot. Build it."', newD2: true},
+      {p: 7, title: 'Heel-side: rotate FIRST, then press.', status: 'improving', statusLabel: 'Day 3: Working', statusNote: 'Some progress. Strong bottom turn visible. Post-turn energy management is next.', body: 'Sequence: compress → straighten → maintain back-foot pressure → rotate board DOWN → THEN press forward.', newD2: true},
+      {p: 8, title: 'Don\'t chase off-the-lip yet.', status: 'working', statusLabel: 'Day 3: Holding', statusNote: 'Staying on the cutback progression. Good discipline.', body: '4-stage progression: foot back ✓ → cutback length ✓ → energy connection [now] → off-the-lip (stage 4).', newD2: true},
+      {p: 9, title: 'Stop the hand at the knee.', status: 'new', statusLabel: 'NEW Day 3', body: 'When hand passes front knee (~90°), legs lose stability. Fix: STOP the hand → bend knees more → press from feet. Hand leads too much = lower body disconnects.', newD3: true},
+      {p: 10, title: 'Back foot on astrodek — feel the foam.', status: 'new', statusLabel: 'NEW Day 3', body: 'Conscious lift, place on the foam grip. Feel the difference: wax vs foam. The astrodek is the anchor for the entire rotation.', newD3: true},
+      {p: 11, title: 'Front foot returns AFTER rotation completes.', status: 'new', statusLabel: 'NEW Day 3', body: 'Straight gliding = front foot forward. Sharp attack = back foot back. Only bring front foot forward once the rotation is done — this creates flow.', newD3: true}
     ],
     dayLog: [
       {day: 1, date: '2026-05-25', waves: '1–2 ft', focus: 'Wave reading + stance analysis', effort: '7/10 ⚠', wins: 'Good speed, great wave eye', next: 'Lower intensity; foot-walk back; extension',
        points: ['Cap intensity ~5/10 — stretch', 'When the wall dies, go back to the foam', 'Tap-tap feet back BEFORE turning']},
       {day: 2, date: '2026-05-26', waves: '2–3 ft', focus: 'Cutback connecting; gradualness intro', effort: '8/10 ⚠⚠', wins: 'Cutback timing locked, foot position improved', next: 'Two attacks per wave; gradualness; heel-side rotate-first',
-       points: ['⚠ Two attacks: catch, SIT. Catch, SIT. Foam roller.', 'Gradualness — wait, don\'t shoot. Hand + leg sync.', 'Heel-side: rotate FIRST, then press forward.']}
+       points: ['⚠ Two attacks: catch, SIT. Catch, SIT. Foam roller.', 'Gradualness — wait, don\'t shoot. Hand + leg sync.', 'Heel-side: rotate FIRST, then press forward.']},
+      {day: 3, date: '2026-05-27', waves: '2–3 ft', focus: 'Gradualness; hand-stop drill; astrodek foot placement', wins: 'Effort improved ✓ — less tired. 24 waves. Beautiful flow on key wave.', next: 'Stop the hand at the knee; back foot on astrodek; read the wall before cutback',
+       points: ['Stop the hand. Bend the knees. Press.', 'Back foot on the astrodek (feel the foam)', 'Read the wall — steep or flat? Then decide intensity.']}
     ]
   },
   {
@@ -750,17 +843,17 @@ const students = [
       {day: 3, session: 1, count: 12},
       {day: 3, session: 2, count: 4}
     ],
-    badges: [{text: 'Intake pending', cls: 'warn'}, {text: 'Day 2 ✓', cls: 'ok'}, {text: '↑↑ Big jump', cls: 'improving'}],
-    approach: '<strong>Cleanest jump in the cohort.</strong> Day 2: came in calmer, wider view, real linked turns. Now: back-foot lift + learn to lift the nose. Manage the comparison instinct.',
+    badges: [{text: 'Intake pending', cls: 'warn'}, {text: 'Day 3 ✓', cls: 'ok'}, {text: '↑↑ Awareness growing', cls: 'improving'}],
+    approach: '<strong>Spatial awareness transformed the session.</strong> Day 3: "looking a few meters right" shifted everything. Tough messy conditions — real-time wave reading forced growth.',
     currentPriorities: [
-      'Back foot LIFTS and places on the astrodek (conscious lift, not slide)',
-      'Steep wave = pivot from BACK, lift the nose, rotate',
-      'Inspiration as horizon, not yardstick — "their wave is theirs, yours is yours"'
+      'Look RIGHT and LEFT — scan the wider space before and during the catch',
+      'Read the wall structure: short wall = find power; long wall = step back',
+      'Plan 20m ahead — respond to what\'s coming, not what\'s here'
     ],
     threePoints: [
-      'Back foot LIFTS and places on the astrodek',
-      'Steep wave = pivot from back, lift the nose',
-      'Stay wide-awake to the whole space'
+      'Scan right AND left — be wide awake',
+      'Short wall = find power. Long wall = step back.',
+      'Plan 20m ahead — no impulsive reactions'
     ],
     personal: {
       title: 'Personal call — still pending',
@@ -775,6 +868,15 @@ const students = [
         '<strong>Her words about Day 2:</strong> <em>"I came in much calmer. Not trying to go wild. Tried to be aware: which wave can I take, which isn\'t worth it. Once on the wave, turn face, see where the power is."</em>',
         '<strong>Her breakthrough (her telling):</strong> <em>"One wave I took my time, pop-up wasn\'t perfect but I understood it was mine. Calmed down, only THEN went up. Best moment I saw."</em>',
         '<strong>Coach reframe of her concept:</strong> "Stop and decide in real time" — that\'s the foundation for everything coming next.'
+      ],
+      day3: [
+        '<strong>Spatial awareness = Day 3 core focus.</strong> Look right AND left. Be aware of what\'s happening around you before and during the wave catch.',
+        '<strong>Wave reading decision tree:</strong> (1) Position correctly in non-too-steep zone. (2) Stand and stick to wall or wait — depends on situation. (3) Wall steep → push board sideways toward it; wall flat/not built yet → glide or step to other side to collect power. (4) Fast wave → give it time, then stand.',
+        '<strong>"Looking a few meters right" transformed the session</strong> — planning ahead instead of reacting impulsively. Huge shift.',
+        '<strong>Foot work: less emphasis today</strong> (too many layers at once). The spatial layer took priority.',
+        '<strong>Tough conditions:</strong> messy, unorganized waves. The difficulty forced real-time reading — which accelerated spatial learning.',
+        '<strong>On the wave:</strong> aim to be on the lip to get power. When needing speed before the wave breaks, shift weight toward the board\'s middle.',
+        '<strong>Rear foot:</strong> lift and place on the astrodek to be ready to pivot.'
       ]
     },
     approachFull: [
@@ -784,7 +886,9 @@ const students = [
       '<strong>She\'s ready for off-the-lip</strong> — but compression-extension needs more wave-time first.',
       '<strong>Mid-length board:</strong> 3 stance positions. Play between them.',
       '<strong>Hungry — high effort.</strong> Don\'t mistake effort for progress.',
-      '<strong>NEW Day 2 — Inspiration figure.</strong> Frame as a horizon target, not measuring stick. Watch the comparison instinct.'
+      '<strong>NEW Day 2 — Inspiration figure.</strong> Frame as a horizon target, not measuring stick. Watch the comparison instinct.',
+      '<strong>NEW Day 3 — Spatial awareness first.</strong> Look right AND left. Scan 20m ahead. Plan, don\'t react. This is the platform everything else sits on.',
+      '<strong>NEW Day 3 — Wave reading decision tree.</strong> Steep wall → push toward it; flat wall → collect power from the other side; fast wave → give it time. Build this as automatic pattern.'
     ],
     day1Analysis: {
       saw: [
@@ -811,21 +915,40 @@ const students = [
       working: ['Wider-view awareness.', 'Calm decision-making.', 'Front foot first happening.', 'Reading flat walls and going back.'],
       blocking: ['Back foot reactive, not lifted-and-placed.', '"Lifting the nose" missing.', 'Inspiration/comparison instinct.']
     },
+    day3Analysis: {
+      saw: [
+        '<strong>Spatial awareness = the session theme.</strong> Looking right AND left transformed planning. "Looking a few meters to the right" helped significantly to focus and plan rather than react impulsively.',
+        '<strong>Wave reading decision tree introduced:</strong> (1) Non-steep position; (2) stand + stick/wait; (3) steep wall → push board sideways; flat wall → collect power from other side; (4) fast wave → wait, then stand.',
+        '<strong>Plan 20m ahead.</strong> See the wave building from far out. Measure when and how it will break. Complete the positioning before takeoff.',
+        '<strong>Tough conditions:</strong> messy, unorganized waves forced real-time reading. The difficulty became the accelerator.',
+        '<strong>Foot work deprioritized today</strong> — too many simultaneous layers. Spatial first.',
+        '<strong>Steep + fast wall ahead:</strong> stick to it directly. A cutback in that scenario is the wrong call — the wave breaks on you.',
+        '<strong>Rear foot:</strong> lift to astrodek ready position before executing any turn.',
+        '<strong>12 waves in session 1</strong> — strong output in messy conditions.'
+      ],
+      working: ['Spatial awareness growing fast.', 'Planning ahead.', 'Reading the wall structure.'],
+      blocking: ['Impulsive reactions to immediate zone (not 20m ahead).', 'Foot work deprioritized — back foot placement still inconsistent.', 'Decision speed in fast walls.']
+    },
     roadmap: [
-      {p: 1, title: 'Flip the foot order: FRONT foot first, then back.', status: 'improving', statusLabel: 'Day 2: Improving ✓', statusNote: 'Real progress on front foot. Now layering back-foot work.', body: '10-min daily land drill.'},
-      {p: 2, title: 'Read the closeout, choose an exit.', status: 'improved', statusLabel: 'Day 2: MAJOR ✓✓', statusNote: 'Clocked the flat wall on tape, made the right call. Linked turns showed up.', body: 'Three options: escape with speed / off-the-lip / cutback.'},
-      {p: 3, title: 'First off-the-lip attempt.', status: 'working', statusLabel: 'Day 2: Still working', statusNote: 'Waves offering it, foundations come first.', body: 'Frame: "When you\'d otherwise bail, send it up instead."'},
-      {p: 4, title: 'Relax to access movement.', status: 'improved', statusLabel: 'Day 2: BIG SHIFT ✓✓', statusNote: '"Came in much calmer," "completely relaxed." Protect the gain.', body: 'Cue: "Loose feet, soft hands — THEN attack."'},
-      {p: 5, title: 'Pull back from tunnel vision.', status: 'improved', statusLabel: 'Day 2: Widened ✓', statusNote: 'Reading the whole space now. Hold the gain.', body: 'Cue: "One breath out, then go."'},
-      {p: 6, title: 'Back foot LIFTS and places on the astrodek.', status: 'new', statusLabel: 'NEW Day 2', body: 'Conscious lift, not a slide. Astrodek mark is her cue — "I\'m in the right position to pivot."', newD2: true},
-      {p: 7, title: 'Learn to "lift the nose".', status: 'new', statusLabel: 'NEW Day 2', body: 'On a steep wave needing survival exit: pivot from BACK, lift nose, rotate. Drill on land first.', newD2: true},
-      {p: 8, title: 'Inspiration as horizon, not yardstick.', status: 'new', statusLabel: 'NEW Day 2', body: 'The surfer she follows is a target on the horizon. Cue: "Their wave is theirs. Yours is yours."', newD2: true}
+      {p: 1, title: 'Flip the foot order: FRONT foot first, then back.', status: 'improving', statusLabel: 'Day 3: Holding ✓', statusNote: 'Front foot improving. Back foot deprioritized Day 3 — return to it.', body: '10-min daily land drill.'},
+      {p: 2, title: 'Read the closeout, choose an exit.', status: 'mastered', statusLabel: 'Day 3: Solid ✓✓', statusNote: 'Reading walls before decisions. Spatial awareness expanded to 20m ahead.', body: 'Three options: escape with speed / off-the-lip / cutback.'},
+      {p: 3, title: 'First off-the-lip attempt.', status: 'working', statusLabel: 'Day 3: Still building', statusNote: 'Spatial and foot foundations first.', body: 'Frame: "When you\'d otherwise bail, send it up instead."'},
+      {p: 4, title: 'Relax to access movement.', status: 'mastered', statusLabel: 'Day 3: Holding ✓✓', statusNote: 'Consistent calmness. Protect the gain.', body: 'Cue: "Loose feet, soft hands — THEN attack."'},
+      {p: 5, title: 'Pull back from tunnel vision.', status: 'mastered', statusLabel: 'Day 3: EXPANDED ✓✓', statusNote: '"Looking a few meters right" = major transformation. Scanning left AND right now.', body: 'Cue: "One breath out, then go."'},
+      {p: 6, title: 'Back foot LIFTS and places on the astrodek.', status: 'improving', statusLabel: 'Day 3: Working', statusNote: 'Spatial focus took priority. Return to this drill.', body: 'Conscious lift, not a slide. Astrodek mark is her cue — "I\'m in the right position to pivot."', newD2: true},
+      {p: 7, title: 'Learn to "lift the nose".', status: 'working', statusLabel: 'Day 3: Not directly addressed', statusNote: '', body: 'On a steep wave needing survival exit: pivot from BACK, lift nose, rotate. Drill on land first.', newD2: true},
+      {p: 8, title: 'Inspiration as horizon, not yardstick.', status: 'improving', statusLabel: 'Day 3: Growing', statusNote: 'Tough conditions kept her in her own head — less comparison space.', body: 'The surfer she follows is a target on the horizon. Cue: "Their wave is theirs. Yours is yours."', newD2: true},
+      {p: 9, title: 'Spatial awareness: scan right AND left.', status: 'new', statusLabel: 'NEW Day 3', body: 'Look right AND left before and during the catch. Scan 20m ahead. Plan, don\'t react. This transforms reactive surfing into intentional surfing.', newD3: true},
+      {p: 10, title: 'Wave reading decision tree.', status: 'new', statusLabel: 'NEW Day 3', body: '(1) Position non-steep. (2) Stand + stick or wait. (3) Steep wall → push toward it; flat wall → collect from other side. (4) Fast wave → give it time. Build this as automatic pattern.', newD3: true},
+      {p: 11, title: 'Plan 20m ahead.', status: 'new', statusLabel: 'NEW Day 3', body: 'Measure the wave from far out. Understand how it will break. Complete positioning in the paddle, not after takeoff. Cue: "What\'s happening in 20 meters?"', newD3: true}
     ],
     dayLog: [
       {day: 1, date: '2026-05-25', waves: '1–2 ft', focus: 'Wave reading + foot-pattern', wins: 'Compression-extension on entry; strong drive', next: 'Foot order rewire; closeout decisions',
        points: ['Front foot FIRST', 'Stop fighting closeouts — choose a door', 'Loose first, then attack']},
       {day: 2, date: '2026-05-26', waves: '2–3 ft', focus: 'Wider awareness + calmness + back-foot rewire', wins: 'Wide view, real linked turns, "completely relaxed"', next: 'Back foot lift; lifting the nose; manage inspiration',
-       points: ['Back foot LIFTS and places on the astrodek', 'Steep wave = pivot from back, lift the nose', 'Stay wide-awake to the whole space']}
+       points: ['Back foot LIFTS and places on the astrodek', 'Steep wave = pivot from back, lift the nose', 'Stay wide-awake to the whole space']},
+      {day: 3, date: '2026-05-27', waves: '2–3 ft (messy)', focus: 'Spatial awareness + wave reading decision tree', wins: '12 waves S1; "looking right" transformed planning; real-time reading in tough conditions', next: 'Scan right AND left; wave decision tree; plan 20m ahead',
+       points: ['Scan right AND left — be wide awake', 'Short wall = find power. Long wall = step back.', 'Plan 20m ahead — no impulsive reactions']}
     ]
   },
   {
@@ -843,8 +966,8 @@ const students = [
       {day: 3, session: 2, count: 0, rest: true, note: 'Back hurts — didn\'t surf'}
     ],
     waveTarget: 8,
-    badges: [{text: 'Intake ✓', cls: 'ok'}, {text: 'Day 2 ✓', cls: 'ok'}, {text: '↑ Confidence up', cls: 'improving'}],
-    approach: '<strong>Pop-up workaround landed.</strong> Discovered "gentle &gt; force" on his own (own it with him). Phase 2 (use the speed) now open.',
+    badges: [{text: 'Intake ✓', cls: 'ok'}, {text: '⚠ Day 3 rest', cls: 'warn'}, {text: '↑ Confidence up', cls: 'improving'}],
+    approach: '<strong>Back injury — missed Day 3.</strong> Both sessions skipped. Pop-up workaround + "gentle &gt; force" gains are intact. Confirm clearance before Day 4.',
     currentPriorities: [
       'Gentle pressure works better than force (he discovered this himself)',
       'Use the SPEED — body extension forward, don\'t fly off the back',
@@ -927,7 +1050,9 @@ const students = [
       {day: 1, date: '2026-05-25', waves: '1–2 ft', focus: 'Pop-up + wave-line analysis', wins: 'Patient, reads whitewater well', next: 'Pop-up workaround; stay upper-wall; FEAR talk',
        points: ['Survive the section (any way), then ride', 'Stay upper wall — don\'t dig', 'Approach the wall at an angle, not at the beach']},
       {day: 2, date: '2026-05-26', waves: '2–3 ft', focus: 'Pop-up workaround deployed; Phase 2 introduced', wins: 'Used workaround successfully; "gentle > force" insight; spray', next: 'Body extension forward; middle zone; stay up 1 sec more',
-       points: ['Gentle pressure works better than force', 'Use the SPEED — body extension forward', 'Stay UP one extra second']}
+       points: ['Gentle pressure works better than force', 'Use the SPEED — body extension forward', 'Stay UP one extra second']},
+      {day: 3, date: '2026-05-27', waves: '—', focus: 'Rest — back injury', wins: '—', next: 'Confirm clearance before Day 4. Review phases on shore.',
+       points: ['Rest and recover', 'Video review + shore observation', 'Come back fresh — the gap can be an advantage']}
     ]
   }
 ];
@@ -1030,7 +1155,7 @@ students
   });
 
 // RENDER
-const today = new Date('2026-05-26');
+const today = new Date('2026-05-27');
 document.getElementById('today-date').textContent = today.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
 
 const board = document.getElementById('board');
@@ -1141,6 +1266,7 @@ function openModal(id) {
       <h3>${s.personal.title}</h3>
       <ul>${s.personal.items.map(x => `<li>${x}</li>`).join('')}</ul>
       ${s.personal.day2 ? `<h3>Day 2 update</h3><ul>${s.personal.day2.map(x => `<li>${x}</li>`).join('')}</ul>` : ''}
+      ${s.personal.day3 ? `<h3>Day 3 update</h3><ul>${s.personal.day3.map(x => `<li>${x}</li>`).join('')}</ul>` : ''}
     </div>
     <div class="tab-pane" id="pane-analyses">
       <h3>Day 1 — Wave Analysis <span style="font-size: 12px; color: var(--navy-soft); font-weight: 400;">(waves 1–2 ft)</span></h3>
@@ -1158,11 +1284,21 @@ function openModal(id) {
       <ul>${s.day2Analysis.working.map(x => `<li>${x}</li>`).join('')}</ul>
       <h4>What's blocking progression</h4>
       <ul>${s.day2Analysis.blocking.map(x => `<li>${x}</li>`).join('')}</ul>
+
+      ${s.day3Analysis ? `
+      <h3>Day 3 — Wave Analysis <span style="font-size: 12px; color: var(--navy-soft); font-weight: 400;">(waves 2–3 ft, messy)</span></h3>
+      <h4>What I saw</h4>
+      <ul>${s.day3Analysis.saw.map(x => `<li>${x}</li>`).join('')}</ul>
+      <h4>What's working</h4>
+      <ul>${s.day3Analysis.working.map(x => `<li>${x}</li>`).join('')}</ul>
+      <h4>What's blocking progression</h4>
+      <ul>${s.day3Analysis.blocking.map(x => `<li>${x}</li>`).join('')}</ul>
+      ` : ''}
     </div>
     <div class="tab-pane" id="pane-roadmap">
-      <h3>Roadmap — Day 1 priorities (status-tracked) + Day 2 additions</h3>
+      <h3>Roadmap — priorities status-tracked through Day 3</h3>
       ${s.roadmap.map(r => `
-        <div class="roadmap-item ${r.newD2 ? 'new-d2' : ''}" style="--accent: ${s.color};">
+        <div class="roadmap-item ${r.newD3 ? 'new-d3' : r.newD2 ? 'new-d2' : ''}" style="--accent: ${s.color};">
           <h4>
             <span>Priority ${r.p} — ${r.title}</span>
             ${r.statusLabel ? `<span class="status ${statusClass(r.status)}">${r.statusLabel}</span>` : ''}
