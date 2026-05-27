@@ -116,6 +116,41 @@
   .priority-list li::before { content: counter(item); counter-increment: item; position: absolute; left: 0; top: 0; width: 16px; height: 16px; border-radius: 4px; background: currentColor; color: var(--white); font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
   .priority-list li span { color: var(--navy); display: block; }
 
+  .wave-stat {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 14px; background: var(--paper); border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+  .wave-stat .ws-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy-soft); font-weight: 600; }
+  .wave-stat .ws-num { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; color: var(--accent, var(--teal)); }
+  .wave-stat .ws-sub { font-size: 11px; color: var(--navy-soft); margin-top: 2px; }
+  .wave-stat .ws-spark { display: flex; gap: 3px; align-items: flex-end; height: 28px; }
+  .wave-stat .ws-spark .bar { width: 8px; border-radius: 2px 2px 0 0; background: var(--accent, var(--teal)); opacity: 0.85; }
+  .wave-stat .ws-spark .bar.rest { background: var(--border); }
+
+  .chart-card {
+    background: var(--white); border-radius: 14px; padding: 20px 24px;
+    box-shadow: var(--shadow-sm); margin-bottom: 20px;
+  }
+  .chart-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
+  .chart-head h4 { font-size: 16px; color: var(--navy); margin: 0; }
+  .chart-stats { display: flex; gap: 16px; font-size: 12px; color: var(--navy-soft); }
+  .chart-stats strong { color: var(--navy); font-family: 'Fraunces', serif; font-size: 16px; font-weight: 700; margin-left: 4px; }
+  .chart-note { font-size: 12px; color: var(--navy-soft); margin-top: 10px; font-style: italic; padding-top: 10px; border-top: 1px dashed var(--border); }
+
+  .cohort-section { background: var(--white); border-radius: 16px; padding: 24px 28px; margin-bottom: 36px; box-shadow: var(--shadow-md); border-left: 5px solid var(--teal); }
+  .cohort-section h2 { font-size: 22px; color: var(--navy); margin-bottom: 4px; }
+  .cohort-section .sub { font-size: 13px; color: var(--navy-soft); margin-bottom: 16px; font-style: italic; }
+  .cohort-bars { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+  .cohort-bar { display: grid; grid-template-columns: 100px 1fr 60px; align-items: center; gap: 12px; }
+  .cohort-bar .name { font-size: 13px; font-weight: 600; color: var(--navy); }
+  .cohort-bar .track { background: var(--cream); border-radius: 6px; height: 28px; position: relative; overflow: hidden; }
+  .cohort-bar .fill { height: 100%; border-radius: 6px; background: var(--accent); display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; color: var(--white); font-size: 11px; font-weight: 600; transition: width 0.4s ease; }
+  .cohort-bar .fill .session-dots { display: flex; gap: 2px; margin-right: 6px; }
+  .cohort-bar .fill .session-dots span { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.7); }
+  .cohort-bar .total { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700; color: var(--navy); text-align: right; }
+  .cohort-bar .total small { font-size: 10px; color: var(--navy-soft); font-weight: 400; display: block; letter-spacing: 0.04em; }
+
   .mantra {
     background: linear-gradient(135deg, var(--accent, var(--teal)) 0%, color-mix(in srgb, var(--accent, var(--teal)) 70%, black) 100%);
     color: var(--white); border-radius: 12px; padding: 16px 18px;
@@ -342,6 +377,13 @@
     </div>
   </div>
 
+  <!-- COHORT WAVE COUNT -->
+  <div class="cohort-section">
+    <h2>Wave Count — through Day 2 (4 sessions)</h2>
+    <p class="sub">Total waves caught per surfer. Dots = sessions logged. ⚪ = rest day.</p>
+    <div class="cohort-bars" id="cohort-bars"></div>
+  </div>
+
   <!-- BOARD -->
   <div class="section-head">
     <h2>The Board</h2>
@@ -411,6 +453,12 @@ const students = [
     level: 'Intermediate · Style', years: 8,
     personalCue: 'Soft. Slow. Trust.',
     cueExplain: 'Release the hands. Sleep in the lean. Trust where you land.',
+    waveCount: [
+      {day: 1, session: 1, count: 6},
+      {day: 1, session: 2, count: 8},
+      {day: 2, session: 1, count: 4, note: 'Mental clock pressure — distracted by longboarders'},
+      {day: 2, session: 2, count: 5}
+    ],
     badges: [{text: 'Intake ✓', cls: 'ok'}, {text: 'Day 2 ✓', cls: 'ok'}, {text: '↑ Improving', cls: 'improving'}],
     approach: '<strong>Mental release, not strength.</strong> Day 2 shift: pop-up release landed. Watch the mental clock — he gets pulled out of his own water.',
     currentPriorities: [
@@ -500,6 +548,12 @@ const students = [
     level: 'Intermediate · Intuitive', years: 6,
     personalCue: 'Down, up, all the way.',
     cueExplain: 'Compress. Extend through the chest. Commit ALL the way to the foam.',
+    waveCount: [
+      {day: 1, session: 1, count: 9},
+      {day: 1, session: 2, count: 8},
+      {day: 2, session: 1, count: 8},
+      {day: 2, session: 2, count: 7}
+    ],
     badges: [{text: 'Intake ✓', cls: 'ok'}, {text: 'Day 2 ✓', cls: 'ok'}, {text: '↑ Improving', cls: 'improving'}],
     approach: '<strong>Foot sequencing landed.</strong> Now: foam-trust. She exits the cutback early because she\'s afraid of the whitewater. Naming the fear is the work.',
     currentPriorities: [
@@ -585,6 +639,12 @@ const students = [
     level: 'Intermediate · Injury watch', years: 12,
     personalCue: 'Sit, breathe, build.',
     cueExplain: 'Sit between waves. Breathe before each one. Build the motion — don\'t shoot it.',
+    waveCount: [
+      {day: 1, session: 1, count: 9},
+      {day: 1, session: 2, count: 6, note: 'Effort hit 7/10'},
+      {day: 2, session: 1, count: 9, note: 'Effort 8/10 ⚠'},
+      {day: 2, session: 2, count: 0, rest: true, note: 'Rested — following the injury advice ✓'}
+    ],
     badges: [{text: '⚠ 8/10 effort', cls: 'warn'}, {text: 'Day 2 ✓', cls: 'ok'}, {text: '↑ Cutback locked', cls: 'improving'}],
     approach: '<strong>⚠ Injury trajectory wrong direction.</strong> Day 1: 7/10. Day 2: 8/10. Foam roller deployed, "two attacks per wave" tactic given. Have the direct conversation tomorrow.',
     currentPriorities: [
@@ -676,6 +736,12 @@ const students = [
     level: 'Intermediate · Driven', years: null,
     personalCue: 'Wide eyes, calm hands.',
     cueExplain: 'See the whole space — not just in front. Stay loose so movement stays available.',
+    waveCount: [
+      {day: 1, session: 1, count: 10, note: 'Strong start — hungry'},
+      {day: 1, session: 2, count: 5},
+      {day: 2, session: 1, count: 7},
+      {day: 2, session: 2, count: 9, note: 'Came in calmer, more aware'}
+    ],
     badges: [{text: 'Intake pending', cls: 'warn'}, {text: 'Day 2 ✓', cls: 'ok'}, {text: '↑↑ Big jump', cls: 'improving'}],
     approach: '<strong>Cleanest jump in the cohort.</strong> Day 2: came in calmer, wider view, real linked turns. Now: back-foot lift + learn to lift the nose. Manage the comparison instinct.',
     currentPriorities: [
@@ -760,6 +826,13 @@ const students = [
     level: 'Beginner-Intermediate', years: 4,
     personalCue: 'Gentle and tall.',
     cueExplain: 'Soft pressure, not force. Stand tall — don\'t dig. Stay UP one extra second.',
+    waveCount: [
+      {day: 1, session: 1, count: 5},
+      {day: 1, session: 2, count: 4},
+      {day: 2, session: 1, count: 6, note: 'Pop-up workaround unlocked more waves'},
+      {day: 2, session: 2, count: 3}
+    ],
+    waveTarget: 8,
     badges: [{text: 'Intake ✓', cls: 'ok'}, {text: 'Day 2 ✓', cls: 'ok'}, {text: '↑ Confidence up', cls: 'improving'}],
     approach: '<strong>Pop-up workaround landed.</strong> Discovered "gentle &gt; force" on his own (own it with him). Phase 2 (use the speed) now open.',
     currentPriorities: [
@@ -849,6 +922,103 @@ const students = [
   }
 ];
 
+// WAVE COUNT HELPERS
+function waveTotal(s) { return s.waveCount.reduce((a, w) => a + (w.rest ? 0 : w.count), 0); }
+function waveDay2(s) { return s.waveCount.filter(w => w.day === 2 && !w.rest).reduce((a, w) => a + w.count, 0); }
+function waveAvg(s) {
+  const active = s.waveCount.filter(w => !w.rest);
+  if (!active.length) return 0;
+  return (active.reduce((a, w) => a + w.count, 0) / active.length).toFixed(1);
+}
+
+function renderWaveChart(s) {
+  const max = Math.max(10, ...s.waveCount.map(w => w.count));
+  const width = 480, height = 220;
+  const pad = { top: 35, right: 20, bottom: 50, left: 35 };
+  const chartW = width - pad.left - pad.right;
+  const chartH = height - pad.top - pad.bottom;
+  const slot = chartW / s.waveCount.length;
+  const barW = slot * 0.55;
+
+  const accent = s.color.replace('var(--', '').replace(')', '');
+  const fillColor = getComputedStyle(document.documentElement).getPropertyValue('--' + accent).trim() || '#2d8b8b';
+
+  const gridLines = [0, 2, 4, 6, 8, 10].map(v => {
+    if (v > max) return '';
+    const y = pad.top + chartH - (v / max) * chartH;
+    return `<line x1="${pad.left}" y1="${y}" x2="${width - pad.right}" y2="${y}"
+              stroke="#e6e2da" stroke-width="1" stroke-dasharray="2,4"/>
+            <text x="${pad.left - 6}" y="${y + 3}" text-anchor="end"
+              font-size="10" fill="#6c7689" font-family="Inter, sans-serif">${v}</text>`;
+  }).join('');
+
+  let targetLine = '';
+  if (s.waveTarget) {
+    const ty = pad.top + chartH - (s.waveTarget / max) * chartH;
+    targetLine = `<line x1="${pad.left}" y1="${ty}" x2="${width - pad.right}" y2="${ty}"
+                    stroke="${fillColor}" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.6"/>
+                  <text x="${width - pad.right - 4}" y="${ty - 4}" text-anchor="end"
+                    font-size="10" fill="${fillColor}" font-weight="600" font-family="Inter, sans-serif">target ${s.waveTarget}</text>`;
+  }
+
+  const bars = s.waveCount.map((w, i) => {
+    const x = pad.left + i * slot + (slot - barW) / 2;
+    const h = w.rest ? 6 : Math.max(4, (w.count / max) * chartH);
+    const y = pad.top + chartH - h;
+    return `
+      <rect x="${x}" y="${y}" width="${barW}" height="${h}"
+        fill="${w.rest ? '#d4d0c7' : fillColor}" rx="6" ry="6"/>
+      <text x="${x + barW/2}" y="${y - 8}" text-anchor="middle"
+        font-size="14" font-weight="700" fill="${w.rest ? '#6c7689' : '#1a2332'}" font-family="Inter, sans-serif">
+        ${w.rest ? 'Rest' : w.count}
+      </text>
+      <text x="${x + barW/2}" y="${pad.top + chartH + 18}" text-anchor="middle"
+        font-size="11" fill="#2c3a4f" font-weight="600" font-family="Inter, sans-serif">
+        S${w.session}
+      </text>
+      <text x="${x + barW/2}" y="${pad.top + chartH + 32}" text-anchor="middle"
+        font-size="9" fill="#6c7689" font-family="Inter, sans-serif">
+        Day ${w.day}
+      </text>
+    `;
+  }).join('');
+
+  return `<svg viewBox="0 0 ${width} ${height}" style="width:100%; max-width:${width}px; display:block; margin: 0 auto;">
+    ${gridLines}
+    ${targetLine}
+    ${bars}
+  </svg>`;
+}
+
+// COHORT BARS
+const cohortContainer = document.getElementById('cohort-bars');
+const cohortMax = Math.max(...students.map(s => waveTotal(s)));
+students
+  .slice()
+  .sort((a, b) => waveTotal(b) - waveTotal(a))
+  .forEach(s => {
+    const total = waveTotal(s);
+    const pct = (total / cohortMax) * 100;
+    const sessionCount = s.waveCount.filter(w => !w.rest).length;
+    const restCount = s.waveCount.filter(w => w.rest).length;
+    const row = document.createElement('div');
+    row.className = 'cohort-bar';
+    row.style.setProperty('--accent', s.color);
+    row.innerHTML = `
+      <div class="name">${s.name}</div>
+      <div class="track">
+        <div class="fill" style="width: ${pct}%; background: ${s.color};">
+          <span class="session-dots">
+            ${Array(sessionCount).fill('<span></span>').join('')}
+            ${Array(restCount).fill('<span style="background: transparent; border: 1px solid rgba(255,255,255,0.7);"></span>').join('')}
+          </span>
+        </div>
+      </div>
+      <div class="total">${total} <small>${sessionCount}/4 sess${restCount ? ' +rest' : ''}</small></div>
+    `;
+    cohortContainer.appendChild(row);
+  });
+
 // RENDER
 const today = new Date('2026-05-26');
 document.getElementById('today-date').textContent = today.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
@@ -885,6 +1055,19 @@ students.forEach(s => {
       <div class="three-points">
         <div class="label">Today's 3-points (Day 2)</div>
         <ol>${s.threePoints.map(p => `<li>${p}</li>`).join('')}</ol>
+      </div>
+      <div class="wave-stat" style="--accent: ${s.color};">
+        <div>
+          <div class="ws-label">Wave count</div>
+          <div><span class="ws-num">${waveTotal(s)}</span> <span class="ws-sub">total · ${waveDay2(s)} today${s.waveTarget ? ` · target ${s.waveTarget}/session` : ''}</span></div>
+        </div>
+        <div class="ws-spark" title="${s.waveCount.map(w => `D${w.day}S${w.session}: ${w.rest ? 'rest' : w.count}`).join(', ')}">
+          ${s.waveCount.map(w => {
+            const max = 10;
+            const h = w.rest ? 4 : Math.max(2, (w.count / max) * 28);
+            return `<div class="bar ${w.rest ? 'rest' : ''}" style="height: ${h}px;"></div>`;
+          }).join('')}
+        </div>
       </div>
     </div>
     <div class="card-foot">
@@ -980,6 +1163,20 @@ function openModal(id) {
       `).join('')}
     </div>
     <div class="tab-pane" id="pane-log">
+      <h3>Wave count</h3>
+      <div class="chart-card">
+        <div class="chart-head">
+          <h4>Per session</h4>
+          <div class="chart-stats">
+            <span>Total <strong>${waveTotal(s)}</strong></span>
+            <span>Avg/session <strong>${waveAvg(s)}</strong></span>
+            ${s.waveTarget ? `<span>Target/session <strong>${s.waveTarget}</strong></span>` : ''}
+          </div>
+        </div>
+        ${renderWaveChart(s)}
+        ${s.waveCount.filter(w => w.note).map(w => `<div class="chart-note">D${w.day} S${w.session}: ${w.note}</div>`).join('')}
+      </div>
+
       <h3>Day log</h3>
       <p style="font-size:13px; color: var(--navy-soft); margin-bottom: 14px;">Sessions accumulate here as the clinic progresses.</p>
       <div class="day-timeline">
