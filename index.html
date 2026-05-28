@@ -145,6 +145,8 @@
   .trial-stat .ts-dot { width: 10px; height: 10px; border-radius: 50%; }
   .trial-stat .ts-dot.good { background: var(--accent, var(--teal)); }
   .trial-stat .ts-dot.miss { background: var(--border); }
+  .trial-stat.trial-next { border-top: 2px dashed var(--border); opacity: 0.72; margin-top: -6px; }
+  .trial-stat.trial-next .ts-label { color: transparent; }
 
   .chart-card {
     background: var(--white); border-radius: 14px; padding: 20px 24px;
@@ -480,7 +482,7 @@ const students = [
       {day: 2, session: 2, count: 5},
       {day: 3, session: 1, count: 11},
       {day: 3, session: 2, count: 5},
-      {day: 4, session: 1, count: 6}
+      {day: 4, session: 1, count: 6, trials: {movement: 'Open left arm (backside turn)', total: 10, good: 5}}
     ],
     badges: [{text: 'Intake ✓', cls: 'ok'}, {text: 'Day 4 ✓', cls: 'ok'}, {text: '↑ Improving', cls: 'improving'}],
     approach: '<strong>Back shoulder + both hands as one unit.</strong> Day 4: 6 waves, felt the hand opening working. Both hands = Pilates ball moving together. Still forgetting the long lean when focused on hands.',
@@ -938,7 +940,10 @@ const students = [
       {day: 2, session: 2, count: 9, note: 'Came in calmer, more aware'},
       {day: 3, session: 1, count: 12},
       {day: 3, session: 2, count: 4},
-      {day: 4, session: 1, count: 8}
+      {day: 4, session: 1, count: 8, trials: [
+        {movement: 'Legs back (partial)', total: 10, good: 10},
+        {movement: 'Legs all the way to astrodek', total: 10, good: 0}
+      ]}
     ],
     badges: [{text: 'Intake pending', cls: 'warn'}, {text: 'Day 4 ✓', cls: 'ok'}, {text: '↑↑ Awareness growing', cls: 'improving'}],
     approach: '<strong>Foot movement timing breakthrough.</strong> Day 4: 8 waves. Move feet ONLY when on the wave with real speed. Minimal, quick foot shift — small raise, slide, no board-dancing. Astrodek drill assigned.',
@@ -1241,7 +1246,8 @@ function latestTrials(s) {
   const latest = Math.max(...s.waveCount.filter(w=>!w.rest).map(w=>w.day));
   const entries = s.waveCount.filter(w => w.day === latest && !w.rest && w.trials);
   if (!entries.length) return null;
-  return entries[0].trials;
+  const t = entries[0].trials;
+  return Array.isArray(t) ? t : [t];
 }
 
 function renderWaveChart(s) {
@@ -1385,23 +1391,27 @@ students.filter(s => !s.coachOnly).forEach(s => {
         </div>
       </div>
       ${(() => {
-        const t = latestTrials(s);
-        if (!t) return '';
-        const dots = Array.from({length: t.total}, (_, i) =>
-          `<div class="ts-dot ${i < t.good ? 'good' : 'miss'}"></div>`).join('');
-        return `
-        <div class="trial-stat" style="--accent: ${s.color};">
-          <div>
-            <div class="ts-label">Trials (D4)</div>
-            <div class="ts-move">${t.movement}</div>
-          </div>
-          <div style="text-align:right;">
-            <div class="ts-nums">
-              <span class="ts-good">${t.good}</span><span class="ts-sep">/</span><span class="ts-total">${t.total}</span>
+        const trials = latestTrials(s);
+        if (!trials) return '';
+        return trials.map((t, idx) => {
+          const isNext = t.good === 0 && idx > 0;
+          const accentColor = isNext ? 'var(--navy-soft)' : s.color;
+          const dots = Array.from({length: Math.min(t.total, 10)}, (_, i) =>
+            `<div class="ts-dot ${i < t.good ? 'good' : 'miss'}"></div>`).join('');
+          return `
+          <div class="trial-stat${isNext ? ' trial-next' : ''}" style="--accent: ${accentColor};">
+            <div>
+              <div class="ts-label">${idx === 0 ? 'Trials (D4)' : '↳ next step'}</div>
+              <div class="ts-move">${t.movement}</div>
             </div>
-            <div class="ts-bar">${dots}</div>
-          </div>
-        </div>`;
+            <div style="text-align:right;">
+              <div class="ts-nums">
+                <span class="ts-good" style="color:${accentColor};">${t.good}</span><span class="ts-sep">/</span><span class="ts-total">${t.total}</span>
+              </div>
+              <div class="ts-bar">${dots}</div>
+            </div>
+          </div>`;
+        }).join('');
       })()}
     </div>
     <div class="card-foot">
